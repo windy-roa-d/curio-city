@@ -1,0 +1,278 @@
+@charset "UTF-8";
+
+/*!
+Theme Name: Simplicity2 child
+Template:   simplicity2
+Version:    20161002
+*/
+
+/***************************************
+ヘッダータイトル部分
+***************************************/
+#header .alignleft{
+  margin-left:70px;
+  margin-right: 30px;
+  display: flex;
+  align-items: center;
+}
+
+#site-description{
+  color: #555;
+  font-size:20px;
+  margin-right:0px;
+  margin-bottom:0px;
+}
+
+/***************************************
+body共通調整 
+***************************************/
+#main{
+    width: 600px;
+    padding: 0;
+    margin: 0 60px;
+    border: none;
+}
+hr {
+    color: #000;
+    margin: 0 0;
+    width: 100%;
+    border: 1px solid #000;
+}
+/***************************************
+TOPページ記事詳細　リンク色処理 
+***************************************/
+.topicCard{
+    color: #000;
+    text-decoration: none;
+}
+.topicCard:hover{
+    color: #000;
+}
+/***************************************
+TOPページのFlexおよび横幅調整
+***************************************/
+#frontPage-topics, #frontPage-others{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+.frontPage-newTopic, .frontPage-randomTopic{
+    width: 47%;
+    min-width: 300px;
+    margin: 10px;
+}
+.frontPage-tagcloud, .frontPage-info{
+    width:47%;
+    margin: 20px 10px;
+}
+/***************************************
+TOPページ記事部分の表示指定
+***************************************/
+#frontPage-wrap h2{ /* 記事タイトル */
+    margin: 0.2em 0;
+    padding: 2px 0 5px 0;
+    font-size: 21px;
+    letter-spacing: 0.05em;
+}
+#frontPage-topics h2 a{
+    color: #000;
+    text-decoration: none;
+}
+.frontPage-date{ /* 日付情報表示 */
+    font-size: 14px;
+    font-weight: bold;
+}
+.frontPage-excerpt p{ /* 抜粋文表示 */
+    margin: 8px 1em;
+}
+.frontPage-tags{ /* 記事のタグ情報表示 */
+    margin: 0 0 1em 1em;
+    display: flex;
+}
+.frontPage-tags ul{
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0;
+    padding: 0;
+}
+.frontPage-tags li{
+    list-style: none;
+    font-size: 13px;
+    font-weight: bold;
+    margin-right: 1em;
+    padding: 0 3px;
+    border-radius: 5px;
+    border: 1px solid #999;
+    color: #666;
+}
+.frontPage-tags li a{
+    color: #666;
+    text-decoration: none;
+}
+/***************************************
+TOPページInfo部分
+***************************************/
+.frontPage-info ul{
+    margin: 0 17px;
+    padding: 0;
+}
+.frontPage-infodate{
+    list-style: none;
+    margin: 0.6em 0;
+}
+.frontPage-infodate a{
+    color: #000;
+    text-decoration: none;
+    font-weight: bold;
+}
+/***************************************
+タグクラウド部分
+***************************************/
+.tagcloud ul{
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 17px;
+    padding: 0;
+}
+.tagcloud li{
+    list-style: none;
+    margin-right: 1em;
+    margin-bottom: 10px;
+    font-size: 13px;
+    font-weight: bold;
+    padding: 0 3px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    background-color: #ddd;
+}
+.tagcloud li a{
+    color: #666;
+    text-decoration: none;
+}
+
+/***************************************
+TOPページレスポンシブ表示設定
+***************************************/
+
+/* 基本表示 */
+@media screen and (max-width:1110px){
+    .frontPage-newTopic, .frontPage-randomTopic, .frontPage-tagcloud, .frontPage-info{
+        width: 100%;
+    }
+}
+
+/* 639px以下、項目を縦1列に */
+@media screen and (max-width: 639px){
+    div #main{
+    padding: 0;
+    }
+    #header .alignleft{
+        display: block;
+        text-align: center;
+        margin: 0;
+    }
+    #h-top #site-description{
+        font-size:20px;
+    }
+    #site-title{
+        margin: 20px 0;
+    }
+    .frontPage-infodate span{
+        display: block;
+    }
+}
+/* 500px以下、モバイル想定 */
+@media screen and (max-width: 500px){
+    #header .alignleft{
+        display: block;
+    }
+    #h-top #site-description{
+        font-size:14px;
+    }
+    div #main{
+        margin: 0;
+    }
+}
+
+/***************************************
+メニューボタン（モバイルメニュー）表示指定
+***************************************/
+#mobile-menu{
+    display:block; /* 非表示設定を表示に上書き */
+    position:relative;
+}
+#mobile-menu a{
+  right: auto; /* デフォルトでは右寄せのため左に調整 */
+  font-size: 20px;
+  margin-top: 3px;
+}
+
+/***************************************
+メインメニュー（アコーディオンメニュー）表示指定
+***************************************/
+#navi ul{
+    display:none; /* PCメニューを一旦非表示に */
+    border:0;
+}
+#navi ul li{
+    display:block; /* メニューボタン押下で表示させる */
+    float:none;
+    height:auto;
+}
+#navi ul li a:hover{
+    text-decoration:none;
+}
+#navi ul li a {
+    font-size: medium;
+    padding: 10px;
+}
+#navi ul.sub-menu,
+#navi ul.children{
+    position: relative;
+    width:auto;
+    border-width:0;
+}
+#navi ul.sub-menu ul,
+#navi ul.children ul {
+    left: 0;
+    top: 0;
+}
+#navi .sub-menu li,
+#navi .children li{
+    height:auto;
+    padding-left:30px;
+}
+.slicknav_menu {
+    display: block;
+}
+
+/***************************************
+記事本文の表示設定
+***************************************/
+.article h1 {
+    margin-bottom: 10px;
+}
+.post-meta{
+    text-align: left;
+    background-color: #fff;
+    padding-bottom: 5px;
+    border-bottom: 1px solid #000;
+}
+/***************************************
+サイドバー表示設定
+***************************************/
+#sidebar {
+    float: left;
+}
+#sidebar h3{
+    margin-top: 0;
+    padding-bottom: 5px;
+    border-bottom: 2px solid #000;
+}
+.widget_new_entries ul li img,
+.widget_new_popular ul li img,
+.widget_popular_ranking ul li img {
+    width: 60px;
+    height: 60px;
+    border-radius: 10px;
+}
