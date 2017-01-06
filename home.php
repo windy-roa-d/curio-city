@@ -65,17 +65,19 @@
     
     <div id="frontPage-others">
         <div class="tagcloud"><h2>タグから見る</h2>
-            <ul>
+            
             <?php
-                $posttags = get_tags();
-                if ($posttags) {
-                    foreach($posttags as $tag) {
-                    echo '<li><a href="'. get_tag_link($tag->term_id) .'">#' . $tag->name . '</a></li>';
-                    }
-                }
+                $args = array(
+					'order' 	=> "RAND",
+                    'number' 	=> 15,
+                    'format' 	=> "list",
+                    'smallest'  => 13,
+                    'largest'   => 13,
+                    'unit'   => "px"
+				);
+                $posttags = wp_tag_cloud( $args );
             ?>
-            </ul>
-
+            
         </div>
         
         <div class="frontPage-info"><h2>インフォメーション</h2>
