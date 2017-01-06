@@ -64,8 +64,24 @@
     <hr>
     
     <div id="frontPage-others">
-        <div class="tagcloud"><h2>タグから見る</h2>
-            
+        
+        <div class="tag-and-search">
+            <div class="googlesearch">
+                <script>
+                  (function() {
+                    var cx = '*********************:_poipsd0myy';
+                    var gcse = document.createElement('script');
+                    gcse.type = 'text/javascript';
+                    gcse.async = true;
+                    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+                        '//www.google.com/cse/cse.js?cx=' + cx;
+                    var s = document.getElementsByTagName('script')[0];
+                    s.parentNode.insertBefore(gcse, s);
+                  })();
+                </script>
+                <gcse:searchbox-only></gcse:searchbox-only>
+            </div>
+            <div class="tagcloud"><h2>タグから見る</h2>
             <?php
                 $args = array(
 					'order' 	=> "RAND",
@@ -78,8 +94,9 @@
                 $posttags = wp_tag_cloud( $args );
             ?>
             
+            </div>
         </div>
-        
+                
         <div class="frontPage-info"><h2>インフォメーション</h2>
         <aside id="information">
 				<?php /** カスタム投稿タイプ「お知らせ」を表示 */

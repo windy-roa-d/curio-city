@@ -65,7 +65,7 @@ TOPページのFlexおよび横幅調整
     min-width: 300px;
     margin: 10px;
 }
-#frontPage-others .tagcloud, .frontPage-info{
+#frontPage-others .tag-and-search, .frontPage-info{
     width:47%;
     margin: 20px 10px;
 }
@@ -128,6 +128,12 @@ TOPページInfo部分
     color: #000;
     text-decoration: none;
     font-weight: bold;
+}
+/***************************************
+TOPページ検索部分
+***************************************/
+.googlesearch{
+    padding: 10px 50px 10px 0;
 }
 /***************************************
 タグクラウド部分
