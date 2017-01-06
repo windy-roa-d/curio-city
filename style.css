@@ -65,7 +65,7 @@ TOPページのFlexおよび横幅調整
     min-width: 300px;
     margin: 10px;
 }
-.frontPage-tagcloud, .frontPage-info{
+#frontPage-others .tagcloud, .frontPage-info{
     width:47%;
     margin: 20px 10px;
 }
