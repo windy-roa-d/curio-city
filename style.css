@@ -23,6 +23,10 @@ Version:    20161002
   margin-bottom:0px;
 }
 
+#site-title{
+    width: 45%;
+}
+
 /***************************************
 body共通調整 
 ***************************************/
@@ -175,7 +179,8 @@ TOPページレスポンシブ表示設定
         font-size:20px;
     }
     #site-title{
-        margin: 20px 0;
+        margin: 20px auto;
+        width: 70%;
     }
     .frontPage-infodate span{
         display: block;
