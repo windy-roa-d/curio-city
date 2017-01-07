@@ -12,16 +12,16 @@ WordPress上の指定固定ページをフロントページに設定し
 ?>
 <?php get_header(); ?>
 <style type="text/css">
-    /* フロントページのみ、2カラム表示を取り消す */
+    /* 2カラム表示を取り消す処理 */
     #sidebar{
-        display:none;
+        display: none;
     }
     #main{
-        width:auto;
+        width: auto;
         border: none;
     }
     .ad-right{
-        float:left;
+        float: left;
     }
 </style>
 

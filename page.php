@@ -6,8 +6,21 @@
 *****************************************/
 ?>
 <?php get_header(); ?>
-
-  <?php get_template_part('breadcrumbs-page'); //固定ページパンくずリスト?>
+<style type="text/css">
+    /* 2カラム表示を取り消す処理 */
+    #sidebar{
+        display: none;
+    }
+    #main{
+        width: auto;
+        border: none;
+        margin: 0 10%;
+    }
+    .ad-right{
+        float: left;
+    }
+</style>
+  <?php /*get_template_part('breadcrumbs-page'); //固定ページパンくずリストは非表示*/?>
   <?php
   if (have_posts()) : // WordPress ループ
     while (have_posts()) : the_post(); // 繰り返し処理開始 ?>
@@ -16,11 +29,12 @@
           <header>
             <h1 class="entry-title"><?php echo get_the_title(); ?></h1>
             <p class="post-meta">
-              <?php get_template_part('datetime') //投稿日と更新日?>
+              <!-- ▼非表示処理▼ -->
+              <?php /*get_template_part('datetime') //投稿日と更新日?>
 
               <?php get_template_part('edit-link') //編集リンク?>
 
-              <?php wlw_edit_post_link('WLWで編集', '<span class="wlw-edit"><span class="fa fa-pencil-square-o fa-fw"></span>', '</span>'); ?>
+              <?php wlw_edit_post_link('WLWで編集', '<span class="wlw-edit"><span class="fa fa-pencil-square-o fa-fw"></span>', '</span>'); */?>
             </p>
 
             <?php get_template_part('admin-pv');//管理者のみにPV表示?>
