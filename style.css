@@ -4,6 +4,12 @@
 Theme Name: Simplicity2 child
 Template:   simplicity2
 Version:    20161002
+
+Simplicity子テーマのCSSです。
+親テーマのCSSよりもこちらの指定が優先されますが、
+特定ページのみへの反映などは出来ないため、
+その場合は該当するphpファイル内に直接記載してください。
+
 */
 
 /***************************************

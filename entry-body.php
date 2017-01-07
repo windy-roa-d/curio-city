@@ -1,4 +1,11 @@
-<?php //投稿本文 ?>
+<?php 
+/****************************************
+
+ブログ記事本文用のphpファイルです
+※ブログページ全体部分はsingle.phpを編集してください
+
+*****************************************/
+?>
 <?php //インデックス表示時はセクションで区切る（開始タグ）
 //if ( !is_single() ) echo '<article>'; ?>
 <div id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
@@ -18,9 +25,9 @@
     </h1>
     <div class="post-meta tagcloud">
      <ul><?php the_tags('<li  class="tags">#','</li><li class="tags">#','</li>'); ?></ul>
+      <?php get_template_part('datetime') //投稿日と更新日?>
       <!-- ▼非表示処理▼ -->
-      <?php /* get_template_part('datetime') //投稿日と更新日?>
-      <?php  if ( is_category_visible() && //カテゴリを表示する場合
+      <?php /*  if ( is_category_visible() && //カテゴリを表示する場合
                  get_the_category() ): //投稿ページの場合 ?>
       <span class="category"><span class="fa fa-folder fa-fw"></span><?php the_category(', ') ?></span>
       <?php endif; //is_category_visible?>
