@@ -299,3 +299,16 @@ TOPページレスポンシブ表示設定
     height: 60px;
     border-radius: 10px;
 }
+/************************************
+** WordPress Misc
+************************************/
+.wp-caption {
+  padding: 0;
+  border-radius: 0;
+}
+
+.wp-caption-text,
+.gallery-caption{
+  font-size: 80%;
+  margin: 0.5em 1em;
+}
