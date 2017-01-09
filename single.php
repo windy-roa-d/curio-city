@@ -53,8 +53,6 @@
       </aside><!-- #related-entries -->
       <?php endif; //is_related_entry_visible?>
 
-
-
       <?php if ( is_ads_under_relations_enable() ){//関連記事下広告が有効のとき
         get_template_part('ad');
       }?>

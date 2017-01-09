@@ -1,10 +1,16 @@
-<!-- sidebar -->
+<?php 
+/****************************************
+
+サイドバー用のphpファイルです
+
+*****************************************/
+?>
 <div id="sidebar" role="complementary">
   <?php get_template_part('button-slide-sidebar-close');//スライドサイドバー用の閉じるボタン ?>
   <?php get_template_part('ad-sidebar');//サイドバートップ広告の呼び出し ?>
 
   <div id="sidebar-widget">
-      <!-- ウイジェット //新着記事表示を設定 -->
+      <!-- ウイジェット //Simplicityデフォルトの新着記事表示を設定 -->
       <?php if ( is_active_sidebar( 'sidebar-1' ) ) :
         dynamic_sidebar( 'sidebar-1' );
       endif;?>
@@ -14,17 +20,18 @@
       <h3 class="widget_title sidebar_widget_title">ランダム記事</h3>
         <?php
         //グローバル変数の呼び出し
-        global $g_widget_mode;//ウィジェットモード（全て表示するか、カテゴリ別に表示するか）
+        global $g_widget_mode;
         global $g_entry_count;
         $args = array(
-          'posts_per_page' => 3, 'orderby' => 'rand',
+          'posts_per_page' => 3, //【表示件数指定】
+          'orderby' => 'rand',
         );
-        $cat_ids = get_category_ids();//カテゴリ配列の取得
+        $cat_ids = get_category_ids();
         $has_cat_ids = $cat_ids && ($g_widget_mode == 'category');
         if ( $has_cat_ids ) {
           $args += array('category__in' => $cat_ids);
         }
-        query_posts( $args ); //クエリの作成?>
+        query_posts( $args ); ?>
         <ul class="new-entrys">
         <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
         <li class="new-entry">
@@ -49,15 +56,17 @@
         </ul>
         <div class="clear"></div>
     </aside>
+    
+    <!-- カスタム投稿タイプ「お知らせ」を表示 -->
     <aside id="information">
         <h3 class="widget_title sidebar_widget_title">インフォメーション</h3>
-        <?php /** カスタム投稿タイプ「お知らせ」を表示 */
+        <?php
             $args = array(
                 'post_type' 		=> 'information',
-                'posts_per_page' 	=> 3,
+                'posts_per_page' 	=> 2 //【表示件数指定】
             );
             $information = new WP_Query( $args );
-				if ( $information->have_posts() ) : /** 「お知らせ」用のサブループ開始 */ ?>
+				if ( $information->have_posts() ) : ?>
 					<ul>
 						<?php while ( $information->have_posts() ) : $information->the_post(); ?>
 							<li class="frontPage-infodate">
@@ -69,7 +78,7 @@
 					</ul>
 				<?php else : ?>
 					<p>現在お知らせはありません。</p>
-				<?php endif; /** サブループ終了 */
+				<?php endif;
             wp_reset_postdata();
         ?>
     </aside>
