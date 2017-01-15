@@ -59,23 +59,6 @@ TOPページ記事詳細　リンク色処理
     color: #000;
 }
 /***************************************
-TOPページのFlexおよび横幅調整
-***************************************/
-#frontPage-topics, #frontPage-others{
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-}
-.frontPage-newTopic, .frontPage-randomTopic{
-    width: 47%;
-    min-width: 300px;
-    margin: 10px;
-}
-#frontPage-others .tag-and-search, .frontPage-info{
-    width:47%;
-    margin: 20px 10px;
-}
-/***************************************
 TOPページ記事部分の表示指定
 ***************************************/
 #frontPage-wrap h2{ /* 記事タイトル */
@@ -139,10 +122,10 @@ TOPページInfo部分
 TOPページ検索部分
 ***************************************/
 .googlesearch{
-    padding: 10px 50px 10px 0;
+    padding: 0 50px 15px 0;
 }
 /***************************************
-タグクラウド部分
+タグクラウド部分 ※ブログ本文箇所とも一部共通
 ***************************************/
 .tagcloud ul{
     display: flex;
@@ -173,16 +156,36 @@ TOPページ検索部分
 }
 
 /***************************************
+TOPページのFlexおよび横幅調整
+***************************************/
+#frontPage-topics, #frontPage-others{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+.frontPage-newTopic, .frontPage-randomTopic{
+    width: 47%;
+    min-width: 300px;
+    margin: 10px;
+}
+.tag-and-search, .frontPage-info{
+    width:47%;
+    margin: 20px 10px;
+    padding-bottom: 20px;
+}
+/***************************************
 TOPページレスポンシブ表示設定
 ***************************************/
-
 /* 基本表示 */
 @media screen and (max-width:1110px){
-    .frontPage-newTopic, .frontPage-randomTopic, .frontPage-tagcloud, .frontPage-info{
+    .frontPage-newTopic, .frontPage-randomTopic, .tag-and-search, .frontPage-info{
         width: 100%;
     }
+    .tag-and-search{
+        margin: 20px 10px 0 10px;
+        padding-bottom: 0;
+    }
 }
-
 /* 639px以下、項目を縦1列に */
 @media screen and (max-width: 639px){
     div #main{
@@ -300,15 +303,17 @@ TOPページレスポンシブ表示設定
     border-radius: 10px;
 }
 /************************************
-** WordPress Misc
+画像キャプションの表示設定
 ************************************/
 .wp-caption {
   padding: 0;
   border-radius: 0;
 }
-
 .wp-caption-text,
 .gallery-caption{
   font-size: 80%;
   margin: 0.5em 1em;
+}
+div.timeline-Header{
+    display: none;   
 }

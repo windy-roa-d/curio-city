@@ -1,12 +1,7 @@
 <?php
 /****************************************
 
-	Template Name: Top
-
 トップページ（フロントページ）用のphpファイルです。
-WordPress上の指定固定ページをフロントページに設定し
-固定ページの属性＞テンプレートを「top」に指定することで適応されます。
-上段のTemplate Nameを取得しているため削除しないようお気をつけて。
 
 *****************************************/
 ?>
@@ -70,7 +65,7 @@ WordPress上の指定固定ページをフロントページに設定し
     <div id="frontPage-others">
         
         <div class="tag-and-search">
-            <div class="googlesearch">
+            <div class="googlesearch"><h2>サイト内検索</h2>
                 <script>
                   (function() {
                     var cx = '*********************:_poipsd0myy';

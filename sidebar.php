@@ -58,7 +58,7 @@
     </aside>
     
     <!-- カスタム投稿タイプ「お知らせ」を表示 -->
-    <aside id="information">
+    <aside id="information" class="widget">
         <h3 class="widget_title sidebar_widget_title">インフォメーション</h3>
         <?php
             $args = array(
@@ -82,6 +82,12 @@
             wp_reset_postdata();
         ?>
     </aside>
+    
+    <!-- Twitterウィジェットを埋め込み -->
+    <aside id="twitter-sidebar">
+    <h3 class="widget_title sidebar_widget_title">Twitter</h3>
+        <a class="twitter-timeline" data-width="300" data-height="700" href="https://twitter.com/matinote_tw" data-chrome="noheader noborders nofooter">Tweets by matinote_tw</a> <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+    </aside>      
 </div>
 
   <?php if (is_active_sidebar('sidebar-scroll') && !is_mobile() ): ?>
