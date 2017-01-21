@@ -9,3 +9,4 @@
 
 <?php endif; ?>
 <?php //ログインユーザーも含めてカウントする場合は以下に挿入 ?>
+<meta name="google-site-verification" content="JhxQPkTlhLXrpqIrjibVRHJHnxqvIx8Pz-dyMqGy694" />

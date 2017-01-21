@@ -1,6 +1,7 @@
 <?php
 /****************************************
 
+Template Name: Top
 トップページ（フロントページ）用のphpファイルです。
 
 *****************************************/
@@ -68,17 +69,16 @@
             <div class="googlesearch"><h2>サイト内検索</h2>
                 <script>
                   (function() {
-                    var cx = '*********************:_poipsd0myy';
+                    var cx = '010950947954796491421:xgukhz__vy0';
                     var gcse = document.createElement('script');
                     gcse.type = 'text/javascript';
                     gcse.async = true;
-                    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
-                        '//www.google.com/cse/cse.js?cx=' + cx;
+                    gcse.src = 'https://cse.google.com/cse.js?cx=' + cx;
                     var s = document.getElementsByTagName('script')[0];
                     s.parentNode.insertBefore(gcse, s);
                   })();
                 </script>
-                <gcse:searchbox-only></gcse:searchbox-only>
+                <div id="gsc"><gcse:search></gcse:search></div>
             </div>
             <div class="tagcloud"><h2>タグから見る</h2>
             <?php

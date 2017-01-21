@@ -79,10 +79,11 @@
 
           <?php if ( is_page() )://固定ページのときのみ表示 ?>
           <div id="sns-group">
-          <?php if ( is_bottom_share_btns_visible() ) get_template_part('sns-buttons'); //SNSシェアボタンの取得?>
+          <!-- ▼非表示処理▼ -->
+          <?php /*if ( is_bottom_share_btns_visible() ) get_template_part('sns-buttons'); //SNSシェアボタンの取得?>
 
           <?php if ( is_body_bottom_follows_visible() ) //カスタマイザーで表示のとき
-            get_template_part('sns-pages'); //SNSフォローボタンの取得?>
+            get_template_part('sns-pages'); //SNSフォローボタンの取得*/?>
           </div>
           <?php endif;//is_page ?>
 
@@ -93,13 +94,13 @@
             </div>
           <?php endif; ?>
 
-          <p class="footer-post-meta">
-
-            <?php get_template_part('author-link') //投稿者リンク?>
+           <p class="footer-post-meta">
+            <!-- ▼非表示処理▼ -->
+            <?/*php get_template_part('author-link') //投稿者リンク?>
 
             <?php get_template_part('edit-link') //編集リンク?>
 
-            <?php wlw_edit_post_link('WLWで編集', '<span class="wlw-edit"><span class="fa fa-pencil-square-o fa-fw"></span>', '</span>'); ?>
+            <?php wlw_edit_post_link('WLWで編集', '<span class="wlw-edit"><span class="fa fa-pencil-square-o fa-fw"></span>', '</span>'); */?>
           </p>
         </footer>
         </article><!-- .article -->
