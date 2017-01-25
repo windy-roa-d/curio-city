@@ -36,10 +36,6 @@
     border-bottom: 2px #ccc solid;
     padding-bottom: 10px;
     }
-    @media screen and (max-width: 639px){
-    div #main{
-        padding: 15px;
-    }
 </style> 
   <?php //パンくずリスト上ウイジェット 非表示処理
   /* if ( is_single() && is_active_sidebar( 'widget-over-breadcrumbs' ) ): ?>

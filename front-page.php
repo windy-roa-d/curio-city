@@ -19,6 +19,11 @@ Template Name: Top
     .ad-right{
         float: left;
     }
+    @media screen and (max-width: 639px){
+        div #main{
+            padding: 0;
+        }
+    }
 </style>
 
 <div id="frontPage-wrap">

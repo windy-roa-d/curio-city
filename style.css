@@ -335,7 +335,7 @@ TOPページレスポンシブ表示設定
 /* 639px以下、項目を縦1列に */
 @media screen and (max-width: 639px){
     div #main{
-        padding: 0;
+        padding: 15px;
         width: auto;
     }
     #header .alignleft{
