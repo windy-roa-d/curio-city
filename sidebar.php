@@ -17,7 +17,7 @@
       
       <!-- ランダム記事表示の手動設定 -->
       <aside id="new_entries" class="widget widget_new_entries">         
-      <h3 class="widget_title sidebar_widget_title">ランダム記事</h3>
+      <h3 class="widget_title sidebar_widget_title">こちらもどうぞ</h3>
         <?php
         //グローバル変数の呼び出し
         global $g_widget_mode;
