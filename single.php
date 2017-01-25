@@ -12,6 +12,7 @@
 /* 記事本文ページのみ、微調整 */
     .tagcloud {
         display: flex;
+        flex-wrap: wrap;
     }
     .tagcloud ul{
         margin: 0;
@@ -34,6 +35,10 @@
     #related-entries h2{
     border-bottom: 2px #ccc solid;
     padding-bottom: 10px;
+    }
+    @media screen and (max-width: 639px){
+    div #main{
+        padding: 15px;
     }
 </style> 
   <?php //パンくずリスト上ウイジェット 非表示処理

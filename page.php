@@ -19,6 +19,7 @@
     .ad-right{
         float: left;
     }
+    
 </style>
   <?php /*get_template_part('breadcrumbs-page'); //固定ページパンくずリストは非表示*/?>
   <?php

@@ -127,6 +127,7 @@ body共通調整
     margin: 0 60px;
     padding: 0;
     border: none;
+    word-wrap:break-word;
 }
 hr {
     width: 100%;
@@ -140,19 +141,31 @@ hr {
 TOPページ（フロントページ）の表示設定
 ■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■
 /***************************************
-TOPページ新着＆ランダム記事の表示指定
+共通設定
 ***************************************/
-/* 該当記事のタイトル */
+/* 見出し設定 */
 #frontPage-wrap h2{
     font-size: 21px;
     letter-spacing: 0.05em;
     margin: 0.2em 0;
     padding: 2px 0 5px 0;
 }
+/***************************************
+TOPページ新着＆ランダム記事の表示指定
+***************************************/
+/* 該当記事のタイトル（短文題でも高さを同一に） */
+#frontPage-topics h2{
+    min-height: 2.5em;
+}
 #frontPage-topics h2 a{
     color: #000;
     text-decoration: none;
 }
+#frontPage-topics img{
+    max-width: 100%;
+    height: auto;
+}
+
 /* 該当記事の日付情報表示 */
 .frontPage-date{
     font-size: 14px;
@@ -178,7 +191,7 @@ TOPページ新着＆ランダム記事の表示指定
     color: #666;
     font-size: 13px;
     font-weight: bold;
-    margin-right: 1em;
+    margin: 0 1em 0.5em 0;
     padding: 0 3px;
     border: 1px solid #999;
     border-radius: 5px;
@@ -274,6 +287,7 @@ TOPページ検索部分
     border-radius: 5px;
     background-color: #ddd;
     list-style: none;
+    line-height: 1.8em;
 }
 .tagcloud li a{
     color: #666;
@@ -322,6 +336,7 @@ TOPページレスポンシブ表示設定
 @media screen and (max-width: 639px){
     div #main{
         padding: 0;
+        width: auto;
     }
     #header .alignleft{
         display: block;
@@ -332,7 +347,7 @@ TOPページレスポンシブ表示設定
         font-size:20px;
     }
     #site-title{
-        margin: 20px auto;
+        margin: 50px auto 0;
         width: 70%;
     }
     .frontPage-infodate span{
@@ -349,6 +364,14 @@ TOPページレスポンシブ表示設定
     }
     div #main{
         margin: 0;
+    }
+    /* 該当記事の抜粋文表示 */
+    .frontPage-excerpt p{ 
+        margin: 0 0 10px 0;
+    }
+    /* 該当記事のタグ一覧表示 */
+    .frontPage-tags{
+        margin: 0 0 1em 0;
     }
 }
 
@@ -368,7 +391,14 @@ TOPページレスポンシブ表示設定
     padding-bottom: 5px;
     border-bottom: 1px solid #000;
 }
-
+/* 更新日を非表示に */
+#main .post-date, #main .post-update{
+    display: none;
+}
+/* 余白調整 */
+.entry-content {
+    margin-bottom: 30px;
+}
 /***************************************
 サイドバー表示設定
 ***************************************/
@@ -402,4 +432,10 @@ TOPページレスポンシブ表示設定
 }
 div.timeline-Header{
     display: none;   
+}
+/************************************
+フッター箇所の一部非表示設定
+************************************/
+footer .footer-post-meta .post-author{
+    display: none;
 }
