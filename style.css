@@ -382,22 +382,59 @@ TOPページレスポンシブ表示設定
 /***************************************
 記事本文の表示設定
 ***************************************/
-.article h1 {
-    margin-bottom: 10px;
+.article header {
+    background: #eee;
+    padding: 15px 15px 20px;
+    border-radius: 10px;
+}
+.article header h1 {
+    margin: 0;
 }
 .post-meta{
     text-align: left;
-    background-color: #fff;
-    padding-bottom: 5px;
-    border-bottom: 1px solid #000;
+    padding-bottom: 0;
+    margin-bottom: 15px;
+    background-color: inherit
 }
-/* 更新日を非表示に */
-#main .post-date, #main .post-update{
+/* カテゴリの調整 */
+.post-meta .categoryArea{
+    display: inline-block;
+    border: 1px solid #ccc;
+    background: white;
+    margin-right: 10px;
+}
+.post-meta .categoryArea span{
+    display: inline-block;
+    border-left: 10px solid blue;
+    min-width: 80px;
+    letter-spacing: 0.1em;
+    padding: 0;
+}
+.post-meta .categoryArea span a{
+    color: #555;
+    text-decoration: none;
+    font-weight: bold;
+    display: block;
+    padding: 0 15px 0 8px;
+}
+/* 投稿および更新日の調整 */
+.post-meta .fa{ /* 既存アイコン非表示 */
     display: none;
 }
+.post-meta .post-date,
+.post-meta .post-update{
+    font-weight: bold;
+}
+.post-meta .post-date .entry-date::before{
+    content: "公開："
+}
+.post-meta .post-update .entry-date::before{
+    content: "最終更新："
+}
+
 /* 余白調整 */
 .entry-content {
-    margin-bottom: 30px;
+    margin-bottom: 20px;
 }
 /***************************************
 サイドバー表示設定
@@ -416,6 +453,19 @@ TOPページレスポンシブ表示設定
     width: 60px;
     height: 60px;
     border-radius: 10px;
+}
+
+/***************************************
+タグクラウド部分
+***************************************/
+.tagcloud .tagcloud-heading{
+  text-align: left;
+  margin: 0;
+}
+.tagcloud hr{
+  color: #ccc;
+  border: 1px solid #ccc;
+  margin-bottom: 14px;
 }
 
 /************************************

@@ -10,10 +10,6 @@
 <?php get_header(); ?>
 <style type="text/css">
 /* 記事本文ページのみ、微調整 */
-    .tagcloud {
-        display: flex;
-        flex-wrap: wrap;
-    }
     .tagcloud ul{
         margin: 0;
     }
