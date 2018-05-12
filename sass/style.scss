@@ -22,25 +22,25 @@ Simplicity子テーマのCSSです。
 /***************************************
 ヘッダータイトル部分
 ***************************************/
-/* モバイルメニューボタン固定に伴うヘッダーの表示位置調整 */
+// モバイルメニューボタン固定に伴うヘッダーの表示位置調整
 #header .alignleft{
   margin-left:70px;
   margin-right: 30px;
   display: flex;
   align-items: center;
 }
-/* ロゴ画像の横幅 */
+// ロゴ画像の横幅
 #site-title{
     width: 45%;
 }
-/* サイト説明文の色と余白 */
+// サイト説明文の色と余白
 #site-description{
   color: #555;
   font-size:20px;
   margin-right:0px;
   margin-bottom:0px;
 }
-/* SNSフォローボタンの色変更 */
+// SNSフォローボタンの色変更
 ul.snsp li.twitter-page a span{
   background-color:#55ACEE !important;
 }
@@ -66,96 +66,103 @@ ul.snsp li a span:hover{
 /***************************************
 モバイルメニューボタン（「三」みたいなの）表示指定
 ***************************************/
-/* デフォルト（PC閲覧用の非表示設定）を表示に上書き */
+// デフォルト（PC閲覧用の非表示設定）を表示に上書き
 #mobile-menu{
-    display:block;
-    position:relative;
-}
-/* デフォルトでは右寄せのため左に調整 */
-#mobile-menu a{
-  right: auto;
-  font-size: 20px;
-  margin-top: 3px;
+  display:block;
+  position:relative;
+  
+  a{ // デフォルトでは右寄せのため左に調整
+    right: auto;
+    font-size: 20px;
+    margin-top: 3px;
+  }
 }
 
 /***************************************
 メインメニュー（アコーディオンメニュー）表示指定
 ***************************************/
-/* PC閲覧用のデフォルトメニューは一旦非表示に */
+// PC閲覧用のデフォルトメニューは一旦非表示に
 #navi ul{
-    display:none;
-    border:0;
-}
-/* ハンバーガーメニューボタン押下でアコーディオン表示させる */
-#navi ul li{
-    display:block;
-    float:none;
-    height:auto;
-}
-#navi ul li a:hover{
-    text-decoration:none;
-}
-#navi ul li a {
-    font-size: medium;
-    padding: 10px;
-}
-#navi ul.sub-menu,
-#navi ul.children{
+  display:none;
+  border:0;
+  
+  &.sub-menu,
+  &.children {
     position: relative;
     width:auto;
     border-width:0;
-}
-#navi ul.sub-menu ul,
-#navi ul.children ul {
-    left: 0;
-    top: 0;
-}
-#navi .sub-menu li,
-#navi .children li{
+    ul{
+      left: 0;
+      top: 0;
+    }
+    li{
+      height:auto;
+      padding-left:30px;
+    }
+  }
+  
+  // ハンバーガーメニューボタン押下でアコーディオン表示させる
+  li{
+    display:block;
+    float:none;
     height:auto;
-    padding-left:30px;
+    
+    a {
+      font-size: medium;
+      padding: 10px;
+      &:hover{
+        text-decoration:none;
+      }
+    }
+    
+  }
 }
+
 .slicknav_menu {
-    display: block;
+  display: block;
 }
 
 /***************************************
 body共通調整 
 ***************************************/
 #main{
-    width: 600px; /* ←TOPページでは無効。記事の全体幅指定*/
-    margin: 0 60px;
-    padding: 0;
-    border: none;
-    word-wrap:break-word;
-}
-hr {
-    width: 100%;
-    margin: 0 0;
-    color: #000;
-    border: 1px solid #000;
+  width: 600px; // ←TOPページでは無効。記事の全体幅指定
+  margin: 0 60px;
+  padding: 0;
+  border: none;
+  word-wrap:break-word;
 }
 
-/* カテゴリの調整 */
-.categoryArea{
-    display: inline-block;
-    border: 1px solid #ccc;
-    background: white;
-    margin-right: 10px;
+hr {
+  width: 100%;
+  margin: 0 0;
+  color: #000;
+  border: 1px solid #000;
 }
-.categoryArea span{
+
+// カテゴリの調整
+.categoryArea{
+  display: inline-block;
+  border: 1px solid #ccc;
+  background: white;
+  margin-right: 10px;
+  
+  span{
     display: inline-block;
     border-left: 10px solid blue;
     min-width: 80px;
     letter-spacing: 0.1em;
     padding: 0;
-}
-.categoryArea span a{
-    color: #555;
-    text-decoration: none;
-    font-weight: bold;
-    display: block;
-    padding: 0 15px 0 8px;
+    
+    a{
+      color: #555;
+      text-decoration: none;
+      font-weight: bold;
+      display: block;
+      padding: 0 15px 0 8px;
+    }
+    
+  }
 }
 
 /*
@@ -165,80 +172,84 @@ TOPページ（フロントページ）の表示設定
 /***************************************
 共通設定
 ***************************************/
-/* 見出し設定 */
+// 見出し設定
 #frontPage-wrap h2{
-    font-size: 21px;
-    letter-spacing: 0.05em;
-    margin: 0;
-    padding: 0;
+  font-size: 21px;
+  letter-spacing: 0.05em;
+  margin: 0;
+  padding: 0;
 }
+
 /***************************************
 TOPページ新着記事の表示指定
 ***************************************/
-/* 記事ブロックの表示 */
-#frontPage-topics .articleBlock{
-  display: flex;
-  margin-bottom: 50px;
-  position: relative;
-}
-#frontPage-topics .articleThumb{
-  margin-right: 20px;
-}
-#frontPage-topics .categoryArea{
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: 2;
-}
-#frontPage-topics .articleThumb img{
-  display: block;
-}
-
-#frontPage-topics .articleInfo{
-  position: relative;
-  padding-bottom: 25px;
-}
-#frontPage-topics .articleInfo .frontPage-date{
-  position: absolute;
-  left: 0;
-  bottom: 0;
-}
-
-
-/* 該当記事のタイトル（短文題でも高さを同一に） */
-#frontPage-topics h2{
+// 記事ブロックの表示
+#frontPage-topics {
+  
+  // 該当記事のタイトル（短文題でも高さを同一に
+   h2{
     min-height: 2.5em;
-}
-#frontPage-topics h2 a{
-    color: #000;
-    text-decoration: none;
-}
-#frontPage-topics img{
+    a{
+      color: #000;
+      text-decoration: none;
+    }
+  }
+  
+  img{
     max-width: 100%;
     height: auto;
+  }
+  
+  .articleBlock{
+    display: flex;
+    margin-bottom: 50px;
+    position: relative;
+  }
+  .articleThumb{
+    margin-right: 20px;
+    img{
+      display: block;
+    }
+  }
+  .articleInfo{
+    position: relative;
+    padding-bottom: 25px;
+    .frontPage-date{
+      position: absolute;
+      left: 0;
+      bottom: 0;
+    }
+  }
+  
+  .categoryArea{
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 2;
+  }
+  
 }
 
-/* 該当記事の日付情報表示 */
+// 該当記事の日付情報表示
 .frontPage-date{
-    font-size: 14px;
-    font-weight: bold;
+  font-size: 14px;
+  font-weight: bold;
 }
-/* 該当記事の抜粋文表示 */
+// 該当記事の抜粋文表示
 .frontPage-excerpt p{
 }
-/* 該当記事のタグ一覧表示 */
+// 該当記事のタグ一覧表示
 .frontPage-tags{
-    margin: 0 0 1em 1em;
-}
-/* 記事に紐づく全てのタグを横並びにする */
-.frontPage-tags ul{
+  margin: 0 0 1em 1em;
+  // 記事に紐づく全てのタグを横並びにする
+  ul{
     display: flex;
     flex-wrap: wrap;
     margin: 0;
     padding: 0;
-}
-/* 該当記事のタグ見た目設定 */
-.frontPage-tags li{
+  }
+  // 該当記事のタグ見た目設定
+  li{
     color: #666;
     font-size: 13px;
     font-weight: bold;
@@ -247,90 +258,94 @@ TOPページ新着記事の表示指定
     border: 1px solid #999;
     border-radius: 5px;
     list-style: none;
-}
-.frontPage-tags li a{
-    color: #666;
-    text-decoration: none;
+    a{
+      color: #666;
+      text-decoration: none;
+    }
+  }
 }
 
 /***************************************
 TOPページ記事詳細　リンク色変更処理 
 ***************************************/
 .topicCard{
+  color: #000;
+  text-decoration: none;
+  display: block;
+  position: relative;
+  &:hover{
     color: #000;
-    text-decoration: none;
-    display: block;
-    position: relative;
-}
-.topicCard:hover{
-    color: #000;
+  }
 }
 
 /***************************************
 TOPページInfo部分
 ***************************************/
 .frontPage-info ul{
-    margin: 0 17px;
-    padding: 0;
+  margin: 0 17px;
+  padding: 0;
 }
 .frontPage-infodate{
-    margin: 0.6em 0;
-    list-style: none;
-}
-.frontPage-infodate a{
+  margin: 0.6em 0;
+  list-style: none;
+  a{
     color: #000;
     font-weight: bold;
     text-decoration: none;
+  }
 }
 
 /***************************************
 TOPページ検索部分
 ***************************************/
 .googlesearch{
-    padding: 0 50px 15px 0;
+  padding: 0 50px 15px 0;
 }
-/* 検索窓全体設定 */
+// 検索窓全体設定
 #gsc{
-    margin:0 auto;
-    position:relative;
-}
-/* フォーカス時のハイライトを消す */
-#gsc input{
+  margin:0 auto;
+  position:relative;
+  
+  // フォーカス時のハイライトを消す
+  input{
     box-shadow: none;
-}
-/* テキスト入力フォームの枠線と余白設定 */
-#gsc .gsc-input-box{
+    &.gsc-search-button {
+      width: 15px;
+      height: 15px;
+      margin:0 0 0 -13px;
+      padding: 8px 27px;
+      background: #d2d2d2;
+      border: 1px solid #333;
+      border-radius:0px 10px 10px 0;
+    }
+  }
+  
+  //テキスト入力フォームの枠線と余白設定
+  .gsc-input-box{
     border-color: #333;
     border-radius: 10px 0 0 10px;
     padding: 3px 0;
-}
-/* テキスト入力フォームとボタンの位置調整 */
-#gsc table.gsc-search-box td,
-#gsc table.gsc-search-box input {
+  }
+  
+  //テキスト入力フォームとボタンの位置調整
+  table.gsc-search-box td,
+  table.gsc-search-box input {
     vertical-align: top;
-}
-/* ボタンの色と位置調整 */
-#gsc input.gsc-search-button {
-    width: 15px;
-    height: 15px;
-    margin:0 0 0 -13px;
-    padding: 8px 27px;
-    background: #d2d2d2;
-    border: 1px solid #333;
-    border-radius:0px 10px 10px 0;
+  }
 }
 
 /***************************************
 「タグから見る」部分 ※ブログ本文内タグ表示とも一部共通
 ***************************************/
-.tagcloud ul{
+.tagcloud{
+  ul{
     margin: 0 17px;
     padding: 0;
     display: flex;
     flex-wrap: wrap;
-}
-/* 「タグから見る」のタグ個別見た目設定 */
-.tagcloud li{
+  }
+  //「タグから見る」のタグ個別見た目設定
+  li{
     font-size: 13px;
     font-weight: bold;
     margin-right: 1em;
@@ -341,14 +356,15 @@ TOPページ検索部分
     background-color: #ddd;
     list-style: none;
     line-height: 1.8em;
-}
-.tagcloud li a{
-    color: #666;
-    text-decoration: none;
+    a{
+      color: #666;
+      text-decoration: none;
+    }
+  }
 }
 
-/* TOPページのタグクラウドのみPHP処理が異なるため別途調整 */
-/* 各タグの名称手前に＃を置く */
+// TOPページのタグクラウドのみPHP処理が異なるため別途調整
+// 各タグの名称手前に＃を置く
 #frontPage-others .tagcloud a:before{
     content: "#"
 }

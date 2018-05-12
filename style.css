@@ -19,7 +19,6 @@ Simplicity子テーマのCSSです。
 /***************************************
 ヘッダータイトル部分
 ***************************************/
-/* モバイルメニューボタン固定に伴うヘッダーの表示位置調整 */
 #header .alignleft {
   margin-left: 70px;
   margin-right: 30px;
@@ -27,12 +26,10 @@ Simplicity子テーマのCSSです。
   align-items: center;
 }
 
-/* ロゴ画像の横幅 */
 #site-title {
   width: 45%;
 }
 
-/* サイト説明文の色と余白 */
 #site-description {
   color: #555;
   font-size: 20px;
@@ -40,7 +37,6 @@ Simplicity子テーマのCSSです。
   margin-bottom: 0px;
 }
 
-/* SNSフォローボタンの色変更 */
 ul.snsp li.twitter-page a span {
   background-color: #55ACEE !important;
 }
@@ -72,13 +68,10 @@ ul.snsp li a span:hover {
 /***************************************
 モバイルメニューボタン（「三」みたいなの）表示指定
 ***************************************/
-/* デフォルト（PC閲覧用の非表示設定）を表示に上書き */
 #mobile-menu {
   display: block;
   position: relative;
 }
-
-/* デフォルトでは右寄せのため左に調整 */
 #mobile-menu a {
   right: auto;
   font-size: 20px;
@@ -88,45 +81,34 @@ ul.snsp li a span:hover {
 /***************************************
 メインメニュー（アコーディオンメニュー）表示指定
 ***************************************/
-/* PC閲覧用のデフォルトメニューは一旦非表示に */
 #navi ul {
   display: none;
   border: 0;
 }
-
-/* ハンバーガーメニューボタン押下でアコーディオン表示させる */
+#navi ul.sub-menu, #navi ul.children {
+  position: relative;
+  width: auto;
+  border-width: 0;
+}
+#navi ul.sub-menu ul, #navi ul.children ul {
+  left: 0;
+  top: 0;
+}
+#navi ul.sub-menu li, #navi ul.children li {
+  height: auto;
+  padding-left: 30px;
+}
 #navi ul li {
   display: block;
   float: none;
   height: auto;
 }
-
-#navi ul li a:hover {
-  text-decoration: none;
-}
-
 #navi ul li a {
   font-size: medium;
   padding: 10px;
 }
-
-#navi ul.sub-menu,
-#navi ul.children {
-  position: relative;
-  width: auto;
-  border-width: 0;
-}
-
-#navi ul.sub-menu ul,
-#navi ul.children ul {
-  left: 0;
-  top: 0;
-}
-
-#navi .sub-menu li,
-#navi .children li {
-  height: auto;
-  padding-left: 30px;
+#navi ul li a:hover {
+  text-decoration: none;
 }
 
 .slicknav_menu {
@@ -138,7 +120,6 @@ body共通調整
 ***************************************/
 #main {
   width: 600px;
-  /* ←TOPページでは無効。記事の全体幅指定*/
   margin: 0 60px;
   padding: 0;
   border: none;
@@ -152,14 +133,12 @@ hr {
   border: 1px solid #000;
 }
 
-/* カテゴリの調整 */
 .categoryArea {
   display: inline-block;
   border: 1px solid #ccc;
   background: white;
   margin-right: 10px;
 }
-
 .categoryArea span {
   display: inline-block;
   border-left: 10px solid blue;
@@ -167,7 +146,6 @@ hr {
   letter-spacing: 0.1em;
   padding: 0;
 }
-
 .categoryArea span a {
   color: #555;
   text-decoration: none;
@@ -183,7 +161,6 @@ TOPページ（フロントページ）の表示設定
 /***************************************
 共通設定
 ***************************************/
-/* 見出し設定 */
 #frontPage-wrap h2 {
   font-size: 21px;
   letter-spacing: 0.05em;
@@ -194,17 +171,37 @@ TOPページ（フロントページ）の表示設定
 /***************************************
 TOPページ新着記事の表示指定
 ***************************************/
-/* 記事ブロックの表示 */
+#frontPage-topics h2 {
+  min-height: 2.5em;
+}
+#frontPage-topics h2 a {
+  color: #000;
+  text-decoration: none;
+}
+#frontPage-topics img {
+  max-width: 100%;
+  height: auto;
+}
 #frontPage-topics .articleBlock {
   display: flex;
   margin-bottom: 50px;
   position: relative;
 }
-
 #frontPage-topics .articleThumb {
   margin-right: 20px;
 }
-
+#frontPage-topics .articleThumb img {
+  display: block;
+}
+#frontPage-topics .articleInfo {
+  position: relative;
+  padding-bottom: 25px;
+}
+#frontPage-topics .articleInfo .frontPage-date {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+}
 #frontPage-topics .categoryArea {
   position: absolute;
   top: 0;
@@ -212,57 +209,20 @@ TOPページ新着記事の表示指定
   z-index: 2;
 }
 
-#frontPage-topics .articleThumb img {
-  display: block;
-}
-
-#frontPage-topics .articleInfo {
-  position: relative;
-  padding-bottom: 25px;
-}
-
-#frontPage-topics .articleInfo .frontPage-date {
-  position: absolute;
-  left: 0;
-  bottom: 0;
-}
-
-/* 該当記事のタイトル（短文題でも高さを同一に） */
-#frontPage-topics h2 {
-  min-height: 2.5em;
-}
-
-#frontPage-topics h2 a {
-  color: #000;
-  text-decoration: none;
-}
-
-#frontPage-topics img {
-  max-width: 100%;
-  height: auto;
-}
-
-/* 該当記事の日付情報表示 */
 .frontPage-date {
   font-size: 14px;
   font-weight: bold;
 }
 
-/* 該当記事の抜粋文表示 */
-/* 該当記事のタグ一覧表示 */
 .frontPage-tags {
   margin: 0 0 1em 1em;
 }
-
-/* 記事に紐づく全てのタグを横並びにする */
 .frontPage-tags ul {
   display: flex;
   flex-wrap: wrap;
   margin: 0;
   padding: 0;
 }
-
-/* 該当記事のタグ見た目設定 */
 .frontPage-tags li {
   color: #666;
   font-size: 13px;
@@ -273,7 +233,6 @@ TOPページ新着記事の表示指定
   border-radius: 5px;
   list-style: none;
 }
-
 .frontPage-tags li a {
   color: #666;
   text-decoration: none;
@@ -288,7 +247,6 @@ TOPページ記事詳細　リンク色変更処理
   display: block;
   position: relative;
 }
-
 .topicCard:hover {
   color: #000;
 }
@@ -305,7 +263,6 @@ TOPページInfo部分
   margin: 0.6em 0;
   list-style: none;
 }
-
 .frontPage-infodate a {
   color: #000;
   font-weight: bold;
@@ -319,31 +276,13 @@ TOPページ検索部分
   padding: 0 50px 15px 0;
 }
 
-/* 検索窓全体設定 */
 #gsc {
   margin: 0 auto;
   position: relative;
 }
-
-/* フォーカス時のハイライトを消す */
 #gsc input {
   box-shadow: none;
 }
-
-/* テキスト入力フォームの枠線と余白設定 */
-#gsc .gsc-input-box {
-  border-color: #333;
-  border-radius: 10px 0 0 10px;
-  padding: 3px 0;
-}
-
-/* テキスト入力フォームとボタンの位置調整 */
-#gsc table.gsc-search-box td,
-#gsc table.gsc-search-box input {
-  vertical-align: top;
-}
-
-/* ボタンの色と位置調整 */
 #gsc input.gsc-search-button {
   width: 15px;
   height: 15px;
@@ -352,6 +291,15 @@ TOPページ検索部分
   background: #d2d2d2;
   border: 1px solid #333;
   border-radius: 0px 10px 10px 0;
+}
+#gsc .gsc-input-box {
+  border-color: #333;
+  border-radius: 10px 0 0 10px;
+  padding: 3px 0;
+}
+#gsc table.gsc-search-box td,
+#gsc table.gsc-search-box input {
+  vertical-align: top;
 }
 
 /***************************************
@@ -363,8 +311,6 @@ TOPページ検索部分
   display: flex;
   flex-wrap: wrap;
 }
-
-/* 「タグから見る」のタグ個別見た目設定 */
 .tagcloud li {
   font-size: 13px;
   font-weight: bold;
@@ -377,14 +323,11 @@ TOPページ検索部分
   list-style: none;
   line-height: 1.8em;
 }
-
 .tagcloud li a {
   color: #666;
   text-decoration: none;
 }
 
-/* TOPページのタグクラウドのみPHP処理が異なるため別途調整 */
-/* 各タグの名称手前に＃を置く */
 #frontPage-others .tagcloud a:before {
   content: "#";
 }
