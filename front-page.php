@@ -31,38 +31,39 @@ Template Name: Top
         <div class="frontPage-newTopic">
         <?php
         global $post;
-        $args = array( 'posts_per_page' => 1,'post_type' => 'post' );
+        $args = array( 'posts_per_page' => 3,'post_type' => 'post' ); //表示記事数の制御
         $myposts = get_posts( $args );
         foreach( $myposts as $post ) { setup_postdata($post); ?>
-            <a class="topicCard" href="<?php the_permalink() ?>">
-            <div>
-                <div class="frontPage-date"><?php the_time('Y.m.d') ?></div>
-                <h2><?php the_title(); ?></h2>
-                <?php the_post_thumbnail('medium'); ?>
-                <div class="frontPage-excerpt"><?php the_excerpt(); ?></div>
+         
+          <article class="articleBlock">
+           
+            <!-- サムネイル画像 -->
+            <div class="articleThumb">
+             <a class="topicCard" href="<?php the_permalink() ?>">
+              <?php the_post_thumbnail('medium'); ?>
+              </a>
             </div>
-            </a>
-            <div class="frontPage-tags"><ul><?php the_tags('<li  class="tags">#','</li><li class="tags">#','</li>'); ?></ul></div>
+            
+            <div class="articleInfo">
+              <h2><?php the_title(); ?></h2>
+              <div class="frontPage-excerpt"><?php the_excerpt(); ?></div>
+              <div class="frontPage-date"><?php the_time('Y.m.d') ?></div>
+            </div>
+            
+            <!-- カテゴリ -->
+            <?php if ( is_category_visible() &&  get_the_category() ): ?>
+              <div class="categoryArea">
+                <span class="category">
+                  <?php the_category(', ') ?>
+                </span>
+              </div>
+            <?php endif; //is_category_visible?>
+            
+          </article>
         <?php
         }
         wp_reset_postdata();
         ?>
-        </div>
-        <div class="frontPage-randomTopic">
-        <?php
-        $args = array( 'numberposts' => 1, 'orderby' => 'rand', 'post_type' => 'post');
-        $rand_posts = get_posts( $args );
-        foreach( $rand_posts as $post ) : ?>
-            <a class="topicCard" href="<?php the_permalink() ?>">
-            <div>
-                <div class="frontPage-date"><?php the_time('Y.m.d') ?></div>
-                <h2><?php the_title(); ?></h2>
-                <?php the_post_thumbnail('medium'); ?>
-                <div class="frontPage-excerpt"><?php the_excerpt(); ?></div>
-            </div>
-            </a>
-            <div class="frontPage-tags"><ul><?php the_tags('<li  class="tags">#','</li><li class="tags">#','</li>'); ?></ul></div>
-        <?php endforeach; ?>
         </div>
     </div>
     

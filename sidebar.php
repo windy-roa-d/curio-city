@@ -10,13 +10,20 @@
   <?php get_template_part('ad-sidebar');//サイドバートップ広告の呼び出し ?>
 
   <div id="sidebar-widget">
+      <!-- 過去記事一覧へ -->
+      <aside id="old_entries">
+        <h3 class="widget_title sidebar_widget_title"><a href="">過去の記事一覧</a></h3>
+        <p>記事検索はコチラ↓</p>
+        
+      </aside>
+     
       <!-- ウイジェット //Simplicityデフォルトの新着記事表示を設定 -->
       <?php if ( is_active_sidebar( 'sidebar-1' ) ) :
         dynamic_sidebar( 'sidebar-1' );
       endif;?>
       
       <!-- ランダム記事表示の手動設定 -->
-      <aside id="new_entries" class="widget widget_new_entries">         
+      <aside id="new_entries" class="widget widget_new_entries">
       <h3 class="widget_title sidebar_widget_title">こちらもどうぞ</h3>
         <?php
         //グローバル変数の呼び出し
