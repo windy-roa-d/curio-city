@@ -168,6 +168,18 @@ TOPページ（フロントページ）の表示設定
   padding: 0;
 }
 
+#frontPage-body {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+#frontPage-body #frontPage-topics {
+  width: calc(100% - 300px);
+}
+#frontPage-body #frontPage-Side {
+  width: 250px;
+}
+
 /***************************************
 TOPページ新着記事の表示指定
 ***************************************/
@@ -335,14 +347,7 @@ TOPページ検索部分
 /***************************************
 TOPページのFlexおよび横幅調整
 ***************************************/
-#frontPage-topics, #frontPage-others {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-}
-
 .frontPage-newTopic, .frontPage-randomTopic {
-  width: calc(100% - 200px);
   /* min-width: 300px;
   margin: 10px; */
 }

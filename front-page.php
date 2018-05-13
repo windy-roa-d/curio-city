@@ -27,68 +27,93 @@ Template Name: Top
 </style>
 
 <div id="frontPage-wrap">
+
+  <div id="frontPage-body">
+   
     <div id="frontPage-topics">
-        <div class="frontPage-newTopic">
+      <div class="frontPage-newTopic">
         <?php
           if ( have_posts() ) :
             while ( have_posts() ) : the_post();
         ?>
-        <article class="articleBlock">
-           
+          <article class="articleBlock">
+
             <!-- サムネイル画像 -->
             <div class="articleThumb">
-             <a class="topicCard" href="<?php the_permalink() ?>">
-              <?php the_post_thumbnail('medium'); ?>
+              <a class="topicCard" href="<?php the_permalink() ?>">
+                <?php the_post_thumbnail('medium'); ?>
               </a>
             </div>
-            
+
             <div class="articleInfo">
-              <h2><?php the_title(); ?></h2>
-              <div class="frontPage-excerpt"><?php the_excerpt(); ?></div>
-              <div class="frontPage-date"><?php the_time('Y.m.d') ?></div>
+              <h2>
+                <?php the_title(); ?>
+              </h2>
+              <div class="frontPage-excerpt">
+                <?php the_excerpt(); ?>
+              </div>
+              <div class="frontPage-date">
+                <?php the_time('Y.m.d') ?>
+              </div>
             </div>
-            
+
             <!-- カテゴリ -->
             <?php if ( is_category_visible() &&  get_the_category() ): ?>
-              <div class="categoryArea">
-                <span class="category">
+            <div class="categoryArea">
+              <span class="category">
                   <?php the_category(', ') ?>
                 </span>
-              </div>
+            </div>
             <?php endif; //is_category_visible?>
-            
+
           </article>
-        <?php
+          <?php
           endwhile;
           else :
         ?>
-          <div class="post">
-            <h2>記事はありません</h2>
-            <p>お探しの記事は見つかりませんでした。</p>
-          </div>
-        <?php
+            <div class="post">
+              <h2>記事はありません</h2>
+              <p>お探しの記事は見つかりませんでした。</p>
+            </div>
+            <?php
           // if 文終了
           endif; ?>
-          
-        <?php
-////////////////////////////
-//エントリーのページャー
-////////////////////////////
-if ( is_list_pager_type_responsive() ) {
-  //レスポンシブタイプのページャー関数の呼び出し
-  responsive_pagination();
-} else {
-  //旧タイプのページャー
-  get_template_part('pager-paginate-links');
-}
-?>
-        
-        
-    </div>
+
+      </div>
+    </div><!-- /frontPage-topics -->
     
-    <hr>
+    <div id="frontPage-Side">
+      <?php $users = get_users( array('orderby'=>ID,'order'=>ASC) ); ?>
+      <div class="authors">
+        <?php foreach($users as $user) {
+    $uid = $user->ID; ?>
+        <div class="author-profile">
+          <span class="author-thumbanil"><?php echo get_avatar( $uid ,100 ); ?></span>
+          <span class="author-name"><?php echo $user->display_name ; ?></span>
+          <span class="author-description"><?php echo $user->user_description ; ?></span>
+          <span class="author-link"><a href="<?php echo get_bloginfo("url") . '/?author=' . $uid ?>"><?php echo $user->display_name ; ?>の記事一覧</a></span>
+        </div>
+        <?php } ?>
+      </div>
+    </div><!-- /frontPage-Side -->
     
-    <div id="frontPage-others">
+  </div><!-- /frontPage-body -->
+  
+  <div class="frontpage-pager">
+    <?php
+      if ( is_list_pager_type_responsive() ) {
+        //レスポンシブタイプのページャー関数の呼び出し
+        responsive_pagination();
+      } else {
+        //旧タイプのページャー
+        get_template_part('pager-paginate-links');
+      }
+      ?>
+  </div><!-- /frontPage-pager -->
+  
+  <hr>
+    
+  <div id="frontPage-others">
         
         <div class="tag-and-search">
             <div class="googlesearch"><h2>サイト内検索</h2>
@@ -146,6 +171,7 @@ if ( is_list_pager_type_responsive() ) {
 		</aside><!-- / information -->
         </div>
     </div>
-</div>
+    
+</div><!-- /frontPage-wrap -->
 
 <?php get_footer(); ?>
