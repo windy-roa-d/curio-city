@@ -30,12 +30,10 @@ Template Name: Top
     <div id="frontPage-topics">
         <div class="frontPage-newTopic">
         <?php
-        global $post;
-        $args = array( 'posts_per_page' => 3,'post_type' => 'post' ); //表示記事数の制御
-        $myposts = get_posts( $args );
-        foreach( $myposts as $post ) { setup_postdata($post); ?>
-         
-          <article class="articleBlock">
+          if ( have_posts() ) :
+            while ( have_posts() ) : the_post();
+        ?>
+        <article class="articleBlock">
            
             <!-- サムネイル画像 -->
             <div class="articleThumb">
@@ -61,10 +59,31 @@ Template Name: Top
             
           </article>
         <?php
-        }
-        wp_reset_postdata();
+          endwhile;
+          else :
         ?>
-        </div>
+          <div class="post">
+            <h2>記事はありません</h2>
+            <p>お探しの記事は見つかりませんでした。</p>
+          </div>
+        <?php
+          // if 文終了
+          endif; ?>
+          
+        <?php
+////////////////////////////
+//エントリーのページャー
+////////////////////////////
+if ( is_list_pager_type_responsive() ) {
+  //レスポンシブタイプのページャー関数の呼び出し
+  responsive_pagination();
+} else {
+  //旧タイプのページャー
+  get_template_part('pager-paginate-links');
+}
+?>
+        
+        
     </div>
     
     <hr>
