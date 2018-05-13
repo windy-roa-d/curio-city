@@ -180,15 +180,17 @@ TOPページ（フロントページ）の表示設定
   padding: 0;
 }
 
+//全体の表示設定
 #frontPage-body{
   display: flex;
   justify-content: space-between;
+  flex-direction: row-reverse;
   flex-wrap: wrap;
   #frontPage-topics {
-    width: calc(100% - 300px);
+    width: calc(100% - 250px);
   }
   #frontPage-Side{
-    width: 250px;
+    width: 200px;
   }
 }
 
@@ -287,6 +289,38 @@ TOPページ記事詳細　リンク色変更処理
   position: relative;
   &:hover{
     color: #000;
+  }
+}
+
+/***************************************
+TOPページサイドバー
+***************************************/
+#frontPage-Side{
+  .author-profile{
+    margin: 0 auto 30px;
+    padding-left: 20px;
+    border-left: 1px solid #333;
+  }
+  dd{
+    margin: 0;
+  }
+  .author-name{
+    display: block;
+    margin-bottom: 10px;
+    a{
+      color: black;
+    }
+  }
+  .author-thumbanil{
+    width: 100px;
+    height: 100px;
+    margin-bottom: 10px;
+    img{
+      border-radius: 50%;
+    }
+  }
+  .author-description{
+    
   }
 }
 

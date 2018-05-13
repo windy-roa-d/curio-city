@@ -29,7 +29,27 @@ Template Name: Top
 <div id="frontPage-wrap">
 
   <div id="frontPage-body">
-   
+  
+   <div id="frontPage-Side">
+      <?php $users = get_users( array('orderby'=>ID,'order'=>ASC) ); ?>
+      <div class="authors">
+        <?php foreach($users as $user) {
+        $uid = $user->ID; ?>
+        <dl class="author-profile">
+          <dt class="author-name">
+            <a href="<?php echo get_bloginfo("url") . '/?author=' . $uid ?>"><?php echo $user->display_name ; ?></a>
+          </dt>
+          <dd class="author-thumbanil">
+            <a href="<?php echo get_bloginfo("url") . '/?author=' . $uid ?>"><?php echo get_avatar( $uid ,100 ); ?></a>
+          </dd>
+          <dd class="author-description">
+            <span><?php echo $user->user_description ; ?></span>
+          </dd>
+        </dl>
+        <?php } ?>
+      </div>
+    </div>
+    
     <div id="frontPage-topics">
       <div class="frontPage-newTopic">
         <?php
@@ -81,21 +101,6 @@ Template Name: Top
 
       </div>
     </div><!-- /frontPage-topics -->
-    
-    <div id="frontPage-Side">
-      <?php $users = get_users( array('orderby'=>ID,'order'=>ASC) ); ?>
-      <div class="authors">
-        <?php foreach($users as $user) {
-    $uid = $user->ID; ?>
-        <div class="author-profile">
-          <span class="author-thumbanil"><?php echo get_avatar( $uid ,100 ); ?></span>
-          <span class="author-name"><?php echo $user->display_name ; ?></span>
-          <span class="author-description"><?php echo $user->user_description ; ?></span>
-          <span class="author-link"><a href="<?php echo get_bloginfo("url") . '/?author=' . $uid ?>"><?php echo $user->display_name ; ?>の記事一覧</a></span>
-        </div>
-        <?php } ?>
-      </div>
-    </div><!-- /frontPage-Side -->
     
   </div><!-- /frontPage-body -->
   

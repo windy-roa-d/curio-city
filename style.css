@@ -171,13 +171,14 @@ TOPページ（フロントページ）の表示設定
 #frontPage-body {
   display: flex;
   justify-content: space-between;
+  flex-direction: row-reverse;
   flex-wrap: wrap;
 }
 #frontPage-body #frontPage-topics {
-  width: calc(100% - 300px);
+  width: calc(100% - 250px);
 }
 #frontPage-body #frontPage-Side {
-  width: 250px;
+  width: 200px;
 }
 
 /***************************************
@@ -261,6 +262,33 @@ TOPページ記事詳細　リンク色変更処理
 }
 .topicCard:hover {
   color: #000;
+}
+
+/***************************************
+TOPページサイドバー
+***************************************/
+#frontPage-Side .author-profile {
+  margin: 0 auto 30px;
+  padding-left: 20px;
+  border-left: 1px solid #333;
+}
+#frontPage-Side dd {
+  margin: 0;
+}
+#frontPage-Side .author-name {
+  display: block;
+  margin-bottom: 10px;
+}
+#frontPage-Side .author-name a {
+  color: black;
+}
+#frontPage-Side .author-thumbanil {
+  width: 100px;
+  height: 100px;
+  margin-bottom: 10px;
+}
+#frontPage-Side .author-thumbanil img {
+  border-radius: 50%;
 }
 
 /***************************************
