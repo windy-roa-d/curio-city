@@ -184,13 +184,9 @@ TOPページ（フロントページ）の表示設定
 #frontPage-body{
   display: flex;
   justify-content: space-between;
-  flex-direction: row-reverse;
   flex-wrap: wrap;
   #frontPage-topics {
-    width: calc(100% - 250px);
-  }
-  #frontPage-Side{
-    width: 200px;
+    width: 100%;
   }
 }
 
@@ -221,18 +217,46 @@ TOPページ新着記事の表示指定
   }
   .articleThumb{
     margin-right: 20px;
+    //flex: none;
     img{
       display: block;
     }
   }
   .articleInfo{
+    flex: 1;
     position: relative;
     padding-bottom: 25px;
     .frontPage-date{
-      position: absolute;
-      left: 0;
-      bottom: 0;
+      //position: absolute;
+      //left: 0;
+      //bottom: 0;
     }
+  }
+  .articleAside{
+    width: 200px;
+    margin-left: 15px;
+    padding-left: 20px;
+    border-left: 1px solid #333;
+
+    .articleAuthor{
+      margin: 0 auto 30px;
+      dd{
+        margin: 0;
+      }
+      .articleAuthorName{
+        display: block;
+        margin-bottom: 10px;
+      }
+      .articleAuthorImg{
+        width: 100px;
+        height: 100px;
+        margin-bottom: 10px;
+        img{
+          border-radius: 50%;
+        }
+      }
+    }
+  
   }
   
   .categoryArea{
@@ -287,40 +311,13 @@ TOPページ記事詳細　リンク色変更処理
   text-decoration: none;
   display: block;
   position: relative;
+  max-width: 200px;
+  img{
+    width: 100%;
+    height: auto;
+  }
   &:hover{
     color: #000;
-  }
-}
-
-/***************************************
-TOPページサイドバー
-***************************************/
-#frontPage-Side{
-  .author-profile{
-    margin: 0 auto 30px;
-    padding-left: 20px;
-    border-left: 1px solid #333;
-  }
-  dd{
-    margin: 0;
-  }
-  .author-name{
-    display: block;
-    margin-bottom: 10px;
-    a{
-      color: black;
-    }
-  }
-  .author-thumbanil{
-    width: 100px;
-    height: 100px;
-    margin-bottom: 10px;
-    img{
-      border-radius: 50%;
-    }
-  }
-  .author-description{
-    
   }
 }
 

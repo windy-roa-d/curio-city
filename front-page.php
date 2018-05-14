@@ -30,26 +30,6 @@ Template Name: Top
 
   <div id="frontPage-body">
   
-   <div id="frontPage-Side">
-      <?php $users = get_users( array('orderby'=>ID,'order'=>ASC) ); ?>
-      <div class="authors">
-        <?php foreach($users as $user) {
-        $uid = $user->ID; ?>
-        <dl class="author-profile">
-          <dt class="author-name">
-            <a href="<?php echo get_bloginfo("url") . '/?author=' . $uid ?>"><?php echo $user->display_name ; ?></a>
-          </dt>
-          <dd class="author-thumbanil">
-            <a href="<?php echo get_bloginfo("url") . '/?author=' . $uid ?>"><?php echo get_avatar( $uid ,100 ); ?></a>
-          </dd>
-          <dd class="author-description">
-            <span><?php echo $user->user_description ; ?></span>
-          </dd>
-        </dl>
-        <?php } ?>
-      </div>
-    </div>
-    
     <div id="frontPage-topics">
       <div class="frontPage-newTopic">
         <?php
@@ -64,7 +44,8 @@ Template Name: Top
                 <?php the_post_thumbnail('medium'); ?>
               </a>
             </div>
-
+            
+            <!-- 記事情報と抜粋 -->
             <div class="articleInfo">
               <h2>
                 <?php the_title(); ?>
@@ -74,6 +55,22 @@ Template Name: Top
               </div>
               <div class="frontPage-date">
                 <?php the_time('Y.m.d') ?>
+              </div>
+            </div>
+            
+            <!-- 補足情報 -->
+            <div class="articleAside">
+             
+              <!-- 執筆者 -->
+              <dl class="articleAuthor">
+                <dt class="articleAuthorName"><?php the_author_meta( 'display_name' ); ?></dt>
+                <dd class="articleAuthorDesc"><?php the_author_meta( 'user_description' ); ?></dd>
+                <dd class="articleAuthorImg"><?php echo get_avatar( get_the_author_meta( 'ID' ) ,100 ); ?></dd>
+              </dl>
+              
+              <!-- 閲覧数 プラグイン利用 -->
+              <div class="articleView">
+                <?php if(function_exists('the_views')) { the_views(); } ?>
               </div>
             </div>
 
