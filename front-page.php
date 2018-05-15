@@ -77,8 +77,21 @@ Template Name: Top
             <!-- カテゴリ -->
             <?php if ( is_category_visible() &&  get_the_category() ): ?>
             <div class="categoryArea">
+             
               <span class="category">
-                  <?php the_category(', ') ?>
+                  <?php
+$categories = get_the_category();
+$separator = ' ';
+$output = '';
+if ( $categories ) {
+	foreach( $categories as $category ) {
+		$output .= '<a href="' . get_category_link( $category->term_id ) . '" class="category-' 
+			. $category->slug
+			. '">' . $category->cat_name . '</a>' . $separator;
+	}
+echo trim( $output, $separator );
+}
+?>
                 </span>
             </div>
             <?php endif; //is_category_visible?>
@@ -146,6 +159,8 @@ Template Name: Top
             ?>
             
             </div>
+            
+            <?php get_template_part('sns-pages'); //SNSフォローボタンの呼び出し?>
         </div>
                 
         <div class="frontPage-info"><h2>インフォメーション</h2>

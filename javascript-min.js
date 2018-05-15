@@ -1,1 +1,1 @@
-jQuery(function($){$("#h-top").append("<div><p>当サイトは「まち」に散らばる様々なトピックを扱い、<br>「まち」のこれまで・いま・これからについて伝えていくサイトです。</p></div>")});
+jQuery(function($){$("#h-top").append('<div class="siteSubDescription"><p>当サイトは「まち」に散らばる様々なトピックを扱い、<br>「まち」のこれまで・いま・これからについて伝えていくサイトです。</p></div>')});
