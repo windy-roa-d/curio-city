@@ -63,9 +63,9 @@ Template Name: Top
              
               <!-- 執筆者 -->
               <dl class="articleAuthor">
-                <dt class="articleAuthorName"><?php the_author_meta( 'display_name' ); ?></dt>
-                <dd class="articleAuthorDesc"><?php the_author_meta( 'user_description' ); ?></dd>
-                <dd class="articleAuthorImg"><?php echo get_avatar( get_the_author_meta( 'ID' ) ,100 ); ?></dd>
+                <dt class="articleAuthorName"><a href="<?php echo get_author_posts_url( get_the_author_meta( 'ID' ) ); ?>"><?php the_author_meta( 'display_name' ); ?></a></dt>
+                <dd class="articleAuthorDesc"><a href="<?php echo get_author_posts_url( get_the_author_meta( 'ID' ) ); ?>"><?php the_author_meta( 'user_description' ); ?></a></dd>
+                <dd class="articleAuthorImg"><a href="<?php echo get_author_posts_url( get_the_author_meta( 'ID' ) ); ?>"><?php echo get_avatar( get_the_author_meta( 'ID' ) ,100 ); ?></a></dd>
               </dl>
               
               <!-- 閲覧数 プラグイン利用 -->
@@ -79,20 +79,20 @@ Template Name: Top
             <div class="categoryArea">
              
               <span class="category">
-                  <?php
-$categories = get_the_category();
-$separator = ' ';
-$output = '';
-if ( $categories ) {
-	foreach( $categories as $category ) {
-		$output .= '<a href="' . get_category_link( $category->term_id ) . '" class="category-' 
-			. $category->slug
-			. '">' . $category->cat_name . '</a>' . $separator;
-	}
-echo trim( $output, $separator );
-}
-?>
-                </span>
+              <?php
+                $categories = get_the_category();
+                $separator = ' ';
+                $output = '';
+                if ( $categories ) {
+                  foreach( $categories as $category ) {
+                    $output .= '<a href="' . get_category_link( $category->term_id ) . '" class="category-' 
+                      . $category->slug
+                      . '">' . $category->cat_name . '</a>' . $separator;
+                  }
+                  echo trim( $output, $separator );
+                }
+                ?>
+              </span>
             </div>
             <?php endif; //is_category_visible?>
 

@@ -22,6 +22,44 @@
         dynamic_sidebar( 'sidebar-1' );
       endif;?>
       
+      <!-- タブ切り替えエリア -->
+      <div id="sideTabArea">
+        <input id="chapter1" type="radio" name="tabItem" checked>
+        <input id="chapter2" type="radio" name="tabItem">
+        <input id="chapter3" type="radio" name="tabItem">
+                
+        <div class="sideTabList">
+            <label class="tabItem chapter1" for="chapter1">人気記事</label>
+            <label class="tabItem chapter2" for="chapter2">カテゴリ</label>
+            <label class="tabItem chapter3" for="chapter3">タグ</label>
+        </div>
+                
+        <div class="tabContent" id="chapter1_content">
+          <p class="default">Loading...</p>
+        </div>
+
+        <div class="tabContent categoryList" id="chapter2_content">
+          <ul>
+            <?php wp_list_categories('orderby=ID&show_count=1&title_li='); ?>
+          </ul>
+        </div>
+        
+        <div class="tabContent tagcloud" id="chapter3_content">
+            <?php
+              $args = array(
+                  'order' 	=> "RAND",
+                  'number' 	=> 15,
+                  'format' 	=> "list",
+                  'smallest'  => 13,
+                  'largest'   => 13,
+                  'unit'   => "px"
+              );
+              $posttags = wp_tag_cloud( $args );
+            ?>
+        </div>
+        
+      </div>
+      
       <!-- ランダム記事表示の手動設定 -->
       <aside id="new_entries" class="widget widget_new_entries">
       <h3 class="widget_title sidebar_widget_title">こちらもどうぞ</h3>

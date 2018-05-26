@@ -75,24 +75,62 @@ ul.snsp li a span:hover {
 }
 
 /***************************************
-モバイルメニューボタン（「三」みたいなの）表示指定
-***************************************/
-#mobile-menu {
-  display: block;
-  position: relative;
-}
-#mobile-menu a {
-  right: auto;
-  font-size: 20px;
-  margin-top: 3px;
-}
-
-/***************************************
 メインメニュー（アコーディオンメニュー）表示指定
 ***************************************/
+#mobile-menu {
+  display: none;
+}
+
+.slicknav_menu {
+  display: block;
+}
+
+#header {
+  position: relative;
+}
+#header #gnav-menu {
+  position: fixed;
+  top: 30px;
+  right: 30px;
+  width: 108px;
+  height: 37px;
+  z-index: 9999;
+}
+#header #gnav-menu a {
+  display: block;
+  width: 100%;
+  height: 100%;
+  padding: 5px 10px;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  border-radius: 3px;
+  box-sizing: border-box;
+  color: #333333;
+  background: #eeeeee;
+  text-decoration: none;
+}
+#header #gnav-menu a:hover {
+  opacity: 0.7;
+}
+#header #gnav-menu span {
+  vertical-align: middle;
+}
+#header #gnav-menu .menuTxt {
+  font-weight: bold;
+  font-size: 18px;
+}
+#header #gnav-menu .fa {
+  font-size: 24px;
+}
+
+#navi {
+  width: 950px;
+  margin: auto;
+  z-index: 99;
+}
 #navi ul {
   display: none;
   border: 0;
+  background: #eeeeee;
 }
 #navi ul.sub-menu, #navi ul.children {
   position: relative;
@@ -119,14 +157,21 @@ ul.snsp li a span:hover {
 #navi ul li a:hover {
   text-decoration: none;
 }
+#navi #navi-in {
+  width: 100%;
+}
 
-.slicknav_menu {
-  display: block;
+#body #gnav-menu {
+  display: none;
 }
 
 /***************************************
 body共通調整 
 ***************************************/
+body {
+  position: relative;
+}
+
 #main {
   width: 600px;
   margin: 0 60px;
@@ -144,7 +189,6 @@ hr {
 
 .categoryArea {
   display: inline-block;
-  margin-right: 10px;
 }
 .categoryArea span {
   display: inline-block;
@@ -157,7 +201,6 @@ hr {
   background: white;
   text-decoration: none;
   font-weight: bold;
-  display: block;
   padding: 0 15px 0 8px;
   border-left-width: 10px;
   border-left-style: solid;
@@ -214,9 +257,6 @@ TOPページ（フロントページ）の表示設定
 /***************************************
 TOPページ新着記事の表示指定
 ***************************************/
-#frontPage-topics h2 {
-  min-height: 2.5em;
-}
 #frontPage-topics h2 a {
   color: #000;
   text-decoration: none;
@@ -227,8 +267,11 @@ TOPページ新着記事の表示指定
 }
 #frontPage-topics .articleBlock {
   display: flex;
-  margin-bottom: 50px;
   position: relative;
+  margin-bottom: 50px;
+}
+#frontPage-topics .articleBlock:last-child {
+  margin-bottom: 25px;
 }
 #frontPage-topics .articleBlock:first-child .articleInfo::after {
   position: absolute;
@@ -240,7 +283,7 @@ TOPページ新着記事の表示指定
   width: 4em;
   height: 1em;
   right: 0;
-  border: 0;
+  bottom: 6px;
 }
 #frontPage-topics .articleThumb {
   width: 280px;
@@ -288,8 +331,10 @@ TOPページ新着記事の表示指定
   left: 3px;
   z-index: 3;
   font-size: 0.9em;
+  margin-right: 10px;
 }
 #frontPage-topics .categoryArea a {
+  display: block;
   margin-bottom: 3px;
 }
 #frontPage-topics .articleInfo {
@@ -297,29 +342,51 @@ TOPページ新着記事の表示指定
   position: relative;
   padding-bottom: 25px;
 }
+#frontPage-topics .articleInfo .frontPage-date {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+}
 #frontPage-topics .articleAside {
   width: 200px;
-  margin-left: 15px;
+  margin-left: 20px;
   padding-left: 20px;
   border-left: 1px solid #333;
+  position: relative;
 }
 #frontPage-topics .articleAside .articleAuthor {
-  margin: 0 auto 30px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin: 0 auto;
 }
 #frontPage-topics .articleAside .articleAuthor dd {
   margin: 0;
 }
 #frontPage-topics .articleAside .articleAuthor .articleAuthorName {
   display: block;
+  width: 100%;
   margin-bottom: 10px;
 }
+#frontPage-topics .articleAside .articleAuthor .articleAuthorDesc {
+  width: 4em;
+  margin-right: 1em;
+  display: inline-block;
+}
 #frontPage-topics .articleAside .articleAuthor .articleAuthorImg {
+  display: inline-block;
   width: 100px;
   height: 100px;
   margin-bottom: 10px;
 }
 #frontPage-topics .articleAside .articleAuthor .articleAuthorImg img {
   border-radius: 50%;
+}
+#frontPage-topics .articleAside .articleView {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  padding-left: 20px;
 }
 
 .frontPage-date {
@@ -522,9 +589,20 @@ TOPページレスポンシブ表示設定
   padding: 15px 15px 20px;
   border-radius: 10px;
 }
-
 .article header h1 {
   margin: 0;
+}
+
+.categoryArea {
+  margin-bottom: 10px;
+}
+.categoryArea a {
+  display: inline-block;
+  margin-right: 2px;
+}
+
+.postDateArea {
+  display: inline-block;
 }
 
 .post-meta {
@@ -564,16 +642,23 @@ TOPページレスポンシブ表示設定
 #sidebar {
   float: left;
 }
-
 #sidebar h3 {
   margin-top: 0;
   padding-bottom: 5px;
   border-bottom: 2px solid #000;
 }
-
 #sidebar h3 a {
   color: #000000;
   text-decoration: none;
+}
+#sidebar .widget_popular_ranking {
+  visibility: hidden;
+  height: 0px;
+  overflow: hidden;
+  margin-bottom: 0;
+}
+#sidebar .widget_popular_ranking h3 {
+  display: none;
 }
 
 .widget_new_entries ul li img,
@@ -582,6 +667,58 @@ TOPページレスポンシブ表示設定
   width: 60px;
   height: 60px;
   border-radius: 10px;
+}
+
+#sideTabArea {
+  margin-bottom: 45px;
+}
+#sideTabArea .sideTabList {
+  display: flex;
+  border-top: 1px solid #000000;
+  border-left: 1px solid #000000;
+  border-bottom: 2px solid #000000;
+}
+#sideTabArea .sideTabList .tabItem {
+  flex: 1;
+  font-size: 20px;
+  padding: 5px 0;
+  line-height: 130%;
+  text-align: center;
+  font-weight: bold;
+  position: relative;
+  cursor: pointer;
+  border-right: 1px solid #000000;
+}
+#sideTabArea .tabContent {
+  display: none;
+  margin: 16px 0;
+}
+#sideTabArea .tabContent ul {
+  margin: 0;
+  padding-left: 0;
+}
+#sideTabArea .tabContent .tagcloud {
+  padding-top: 5px;
+}
+#sideTabArea .tabContent .widget_popular_ranking {
+  visibility: visible;
+  height: auto;
+}
+#sideTabArea .tabContent .default {
+  min-height: 268px;
+}
+#sideTabArea input[name="tabItem"] {
+  display: none;
+}
+#sideTabArea #chapter1:checked ~ #chapter1_content,
+#sideTabArea #chapter2:checked ~ #chapter2_content,
+#sideTabArea #chapter3:checked ~ #chapter3_content {
+  display: block;
+}
+#sideTabArea #chapter1:checked ~ .sideTabList .chapter1,
+#sideTabArea #chapter2:checked ~ .sideTabList .chapter2,
+#sideTabArea #chapter3:checked ~ .sideTabList .chapter3 {
+  background: #eeeeee;
 }
 
 /***************************************

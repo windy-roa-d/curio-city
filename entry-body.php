@@ -46,7 +46,9 @@ echo trim( $output, $separator );
         <!-- /カテゴリの表示 -->
 
         <!-- 投稿日と更新日 -->
-        <?php get_template_part('datetime') ?>
+        <div class="postDateArea">
+          <?php get_template_part('datetime') ?>
+        </div>
         <!-- /投稿日と更新日 -->
 
         <?php //コメント数
@@ -134,6 +136,8 @@ echo trim( $output, $separator );
         <?php dynamic_sidebar( 'widget-under-sns-buttons' ); ?>
       </div>
       <?php endif; ?>
+      
+      <?php get_template_part('sns-pages'); //SNSフォローボタンの呼び出し?>
 
     </footer>
   </article>
