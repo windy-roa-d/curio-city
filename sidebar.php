@@ -10,98 +10,56 @@
   <?php get_template_part('ad-sidebar');//サイドバートップ広告の呼び出し ?>
 
   <div id="sidebar-widget">
-      <!-- 過去記事一覧へ -->
-      <aside id="old_entries">
-        <h3 class="widget_title sidebar_widget_title"><a href="">過去の記事一覧</a></h3>
-        <p>記事検索はコチラ↓</p>
-        
-      </aside>
-     
-      <!-- ウイジェット //Simplicityデフォルトの新着記事表示を設定 -->
-      <?php if ( is_active_sidebar( 'sidebar-1' ) ) :
-        dynamic_sidebar( 'sidebar-1' );
-      endif;?>
-      
-      <!-- タブ切り替えエリア -->
-      <div id="sideTabArea">
-        <input id="chapter1" type="radio" name="tabItem" checked>
-        <input id="chapter2" type="radio" name="tabItem">
-        <input id="chapter3" type="radio" name="tabItem">
-                
-        <div class="sideTabList">
-            <label class="tabItem chapter1" for="chapter1">人気記事</label>
-            <label class="tabItem chapter2" for="chapter2">カテゴリ</label>
-            <label class="tabItem chapter3" for="chapter3">タグ</label>
-        </div>
-                
-        <div class="tabContent" id="chapter1_content">
-          <p class="default">Loading...</p>
-        </div>
+    <!-- 過去記事一覧へ -->
+    <aside id="old_entries">
+      <h3 class="widget_title sidebar_widget_title"><a href="">過去の記事一覧</a></h3>
+      <p>記事検索はコチラ↓</p>
 
-        <div class="tabContent categoryList" id="chapter2_content">
-          <ul>
-            <?php wp_list_categories('orderby=ID&show_count=1&title_li='); ?>
-          </ul>
-        </div>
-        
-        <div class="tabContent tagcloud" id="chapter3_content">
-            <?php
-              $args = array(
-                  'order' 	=> "RAND",
-                  'number' 	=> 15,
-                  'format' 	=> "list",
-                  'smallest'  => 13,
-                  'largest'   => 13,
-                  'unit'   => "px"
-              );
-              $posttags = wp_tag_cloud( $args );
-            ?>
-        </div>
-        
-      </div>
-      
-      <!-- ランダム記事表示の手動設定 -->
-      <aside id="new_entries" class="widget widget_new_entries">
-      <h3 class="widget_title sidebar_widget_title">こちらもどうぞ</h3>
-        <?php
-        //グローバル変数の呼び出し
-        global $g_widget_mode;
-        global $g_entry_count;
-        $args = array(
-          'posts_per_page' => 3, //【表示件数指定】
-          'orderby' => 'rand',
-        );
-        $cat_ids = get_category_ids();
-        $has_cat_ids = $cat_ids && ($g_widget_mode == 'category');
-        if ( $has_cat_ids ) {
-          $args += array('category__in' => $cat_ids);
-        }
-        query_posts( $args ); ?>
-        <ul class="new-entrys">
-        <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
-        <li class="new-entry">
-          <div class="new-entry-thumb">
-          <?php if ( has_post_thumbnail() ): // サムネイルを持っているときの処理 ?>
-            <a href="<?php the_permalink(); ?>" class="new-entry-image" title="<?php the_title(); ?>"><?php the_post_thumbnail( 'thumb100', array('alt' => get_the_title()) ); ?></a>
-          <?php else: // サムネイルを持っていないときの処理 ?>
-            <a href="<?php the_permalink(); ?>" class="new-entry-image" title="<?php the_title(); ?>"><img src="<?php echo get_template_directory_uri(); ?>/images/no-image.png" alt="NO IMAGE" class="no-image new-list-no-image" /></a>
-          <?php endif; ?>
-          </div><!-- /.new-entry-thumb -->
-
-          <div class="new-entry-content">
-            <a href="<?php the_permalink(); ?>" class="new-entry-title" title="<?php the_title(); ?>"><?php the_title();?></a>
-          </div><!-- /.new-entry-content -->
-
-        </li><!-- /.new-entry -->
-        <?php endwhile;
-        else :
-          echo '<p>'.get_theme_text_not_found_message().'</p>';//見つからない時のメッセージ
-        endif; ?>
-        <?php wp_reset_query(); ?>
-        </ul>
-        <div class="clear"></div>
     </aside>
-    
+
+    <!-- ウイジェット //Simplicityデフォルトの新着記事表示を設定 -->
+    <?php if ( is_active_sidebar( 'sidebar-1' ) ) :
+      dynamic_sidebar( 'sidebar-1' );
+    endif;?>
+
+    <!-- タブ切り替えエリア -->
+    <div id="sideTabArea">
+      <input id="chapter1" type="radio" name="tabItem" checked>
+      <input id="chapter2" type="radio" name="tabItem">
+      <input id="chapter3" type="radio" name="tabItem">
+
+      <div class="sideTabList">
+          <label class="tabItem chapter1" for="chapter1">人気記事</label>
+          <label class="tabItem chapter2" for="chapter2">カテゴリ</label>
+          <label class="tabItem chapter3" for="chapter3">タグ</label>
+      </div>
+
+      <div class="tabContent" id="chapter1_content">
+        <p class="default">Loading...</p>
+      </div>
+
+      <div class="tabContent categoryList" id="chapter2_content">
+        <ul>
+          <?php wp_list_categories('orderby=ID&show_count=1&title_li='); ?>
+        </ul>
+      </div>
+
+      <div class="tabContent tagcloud" id="chapter3_content">
+          <?php
+            $args = array(
+                'order' 	=> "RAND",
+                'number' 	=> 15,
+                'format' 	=> "list",
+                'smallest'  => 13,
+                'largest'   => 13,
+                'unit'   => "px"
+            );
+            $posttags = wp_tag_cloud( $args );
+          ?>
+      </div>
+
+    </div>
+      
     <!-- カスタム投稿タイプ「お知らせ」を表示 -->
     <aside id="information" class="widget">
         <h3 class="widget_title sidebar_widget_title">インフォメーション</h3>
