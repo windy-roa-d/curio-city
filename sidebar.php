@@ -11,10 +11,21 @@
 
   <div id="sidebar-widget">
     <!-- 過去記事一覧へ -->
-    <aside id="old_entries">
-      <h3 class="widget_title sidebar_widget_title"><a href="">過去の記事一覧</a></h3>
+    <aside id="old_entries" class="widget">
+      <h3 class="widget_title sidebar_widget_title"><a href="/list/" target="_blank">過去の記事一覧</a></h3>
       <p>記事検索はコチラ↓</p>
-
+      <script>
+        (function() {
+          var cx = '010950947954796491421:xgukhz__vy0';
+          var gcse = document.createElement('script');
+          gcse.type = 'text/javascript';
+          gcse.async = true;
+          gcse.src = 'https://cse.google.com/cse.js?cx=' + cx;
+          var s = document.getElementsByTagName('script')[0];
+          s.parentNode.insertBefore(gcse, s);
+        })();
+      </script>
+      <div id="gsc"><gcse:search></gcse:search><span>loading...</span></div>
     </aside>
 
     <!-- ウイジェット //Simplicityデフォルトの新着記事表示を設定 -->

@@ -506,6 +506,12 @@ TOPページ検索部分
 #gsc{
   margin:0 auto;
   position:relative;
+  height: 35px;
+  
+  //loadingメッセージ
+  div + span {
+    display: none;
+  }
   
   // フォーカス時のハイライトを消す
   input{
@@ -520,8 +526,22 @@ TOPページ検索部分
       border-radius:0px 10px 10px 0;
     }
   }
+  .gsc-search-button {
+    margin-left: 0;
+  }
+  .gsc-search-button-v2 {
+    padding: 8px 10px;
+    border-radius: 0 2px 2px 0;
+    border-left: none;
+    svg {
+      max-width: inherit;
+    }
+  }
   
   //テキスト入力フォームの枠線と余白設定
+  .gsc-input {
+    padding-right: 0;
+  }
   .gsc-input-box{
     border-color: #333;
     border-radius: 10px 0 0 10px;
@@ -711,6 +731,16 @@ TOPページレスポンシブ表示設定
     }
   }
   
+  //検索エリア
+  #gsc {
+    .gsc-control-cse {
+      padding: 0;
+    }
+    button {
+      margin-bottom: 0;
+    }
+  }
+  
   .widget_popular_ranking {
     //JS移動前は非表示に
     visibility: hidden;
@@ -721,6 +751,7 @@ TOPページレスポンシブ表示設定
       display: none;
     }
   }
+  
 }
 .widget_new_entries ul li img,
 .widget_new_popular ul li img,
@@ -728,6 +759,12 @@ TOPページレスポンシブ表示設定
     width: 60px;
     height: 60px;
     border-radius: 10px;
+}
+
+#old_entries {
+  #searchform {
+    margin-top: 0;
+  }
 }
 
 #sideTabArea {
