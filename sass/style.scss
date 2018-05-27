@@ -180,12 +180,6 @@ ul.snsp li a span:hover{
 
 }
 
-#body {
-  #gnav-menu {
-    display: none; //JS移動前は表示しない
-  }
-}
-
 
 /***************************************
 body共通調整 
@@ -193,6 +187,13 @@ body共通調整
 body {
   position: relative;
 }
+
+#body {
+  #gnav-menu {
+    display: none; //JS移動前は表示しない
+  }
+}
+
 #main{
   width: 600px; // ←TOPページでは無効。記事の全体幅指定
   margin: 0 60px;
@@ -208,298 +209,7 @@ hr {
   border: 1px solid #000;
 }
 
-// カテゴリの調整（TOP／記事共通）
-.categoryArea{
-  display: inline-block;
-  
-  span{
-    display: inline-block;
-    min-width: 80px;
-    letter-spacing: 0.1em;
-    padding: 0;
-    
-    a{
-      color: #555;
-      background: white;
-      text-decoration: none;
-      font-weight: bold;
-      padding: 0 15px 0 8px;
-      border-left-width: 10px;
-      border-left-style: solid;
-      border-left-color: #000000;
-      
-      //カテゴリの色変更
-      &.category-mati_1{
-        border-left-color: #F78181;
-      }
-      &.category-mati_2{
-        border-left-color: #F5DA81;
-      }
-      &.category-traffic{
-        border-left-color: #F3F781;
-      }
-      &.category-business{
-        border-left-color: #81F781;
-      }
-      &.category-sightseeing{
-        border-left-color: #81BEF7;
-      }
-      &.category-interview{
-        border-left-color: #9F81F7;
-      }
-      &.category-other{
-        border-left-color: #DA81F5;
-      }
-      &.category-default{
-        border-left-color: #000000;
-      }
-
-    }
-    
-  }
-}
-
-/*
-■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■
-TOPページ（フロントページ）の表示設定
-■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■
-/***************************************
-共通設定
-***************************************/
-// 見出し設定
-#frontPage-wrap h2{
-  font-size: 21px;
-  letter-spacing: 0.05em;
-  margin: 0;
-  padding: 0;
-}
-
-//全体の表示設定
-#frontPage-body{
-  display: flex;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  #frontPage-topics {
-    width: 100%;
-  }
-}
-
-/***************************************
-TOPページ新着記事の表示指定
-***************************************/
-// 記事ブロックの表示
-#frontPage-topics {
-  
-  // 該当記事のタイトル（短文題でも高さを同一に
-   h2{
-    //min-height: 2.5em;
-    a{
-      color: #000;
-      text-decoration: none;
-    }
-  }
-  
-  img{
-    max-width: 100%;
-    height: auto;
-  }
-  
-  .articleBlock{
-    display: flex;
-    position: relative;
-    margin-bottom: 50px;
-    &:last-child{
-      margin-bottom: 25px;
-    }
-    
-    //最新投稿にはアイコンを表示
-    &:first-child{
-      .articleInfo::after{
-        position: absolute;
-        display: block;
-        content: "NEW！";
-        color: red;
-        font-size: 0.9em;
-        font-weight: bold;
-        width: 4em;
-        height: 1em;
-        right: 0;
-        bottom: 6px; //何故かずれるので微調整
-      }
-    }
-  }
-  .articleThumb{
-    width: 280px;
-    height: 185px;
-    margin-right: 20px;
-    overflow: hidden;
-    
-    .topicCard{
-      width: 100%;
-      height: 100%;
-      color: #aaaaaa;
-      text-decoration: none;
-      display: block;
-      position: relative;
-      background: #eeeeee;
-      &::after{
-        width: 100%;
-        height: 1em;
-        display: block;
-        z-index: 1;
-        content: "No Image";
-        font-weight: bold;
-        text-align: center;
-        position: absolute;
-        top: 80px;
-        left: 0;
-      }
-      
-      img{
-        display: block;
-        width: 100%;
-        height: auto;
-        position: absolute;
-        top: 0;
-        bottom: 0;
-        margin: auto;
-        z-index: 2;
-      }
-      &:hover{
-        color: #aaaaaa;
-      }
-    }
-    
-  }
-  
-  .categoryArea{
-    position: absolute;
-    top: 3px;
-    left: 3px;
-    z-index: 3;
-    font-size: 0.9em;
-    margin-right: 10px;
-    a {
-      display: block;
-      margin-bottom: 3px;
-    }
-  }
-  
-  .articleInfo{
-    flex: 1;
-    position: relative;
-    padding-bottom: 25px;
-    .frontPage-date{
-      position: absolute;
-      left: 0;
-      bottom: 0;
-    }
-  }
-  
-  //補足情報の表示
-  .articleAside{
-    width: 200px;
-    margin-left: 20px;
-    padding-left: 20px;
-    border-left: 1px solid #333;
-    position: relative;
-
-    .articleAuthor{
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: space-between;
-      margin: 0 auto;
-      dd{
-        margin: 0;
-      }
-      .articleAuthorName{
-        display: block;
-        width: 100%;
-        margin-bottom: 10px;
-      }
-      .articleAuthorDesc {
-        width: 4em;
-        margin-right: 1em;
-        display: inline-block;
-      }
-      .articleAuthorImg{
-        display: inline-block;
-        width: 100px;
-        height: 100px;
-        margin-bottom: 10px;
-        img{
-          border-radius: 50%;
-        }
-      }
-    }
-    
-    .articleView{
-      position: absolute;
-      left: 0;
-      bottom: 0;
-      padding-left: 20px;
-    }
-  
-  }
-  
-}
-
-// 該当記事の日付情報表示
-.frontPage-date{
-  font-size: 14px;
-  font-weight: bold;
-}
-// 該当記事の抜粋文表示
-.frontPage-excerpt p{
-}
-// 該当記事のタグ一覧表示
-.frontPage-tags{
-  margin: 0 0 1em 1em;
-  // 記事に紐づく全てのタグを横並びにする
-  ul{
-    display: flex;
-    flex-wrap: wrap;
-    margin: 0;
-    padding: 0;
-  }
-  // 該当記事のタグ見た目設定
-  li{
-    color: #666;
-    font-size: 13px;
-    font-weight: bold;
-    margin: 0 1em 0.5em 0;
-    padding: 0 3px;
-    border: 1px solid #999;
-    border-radius: 5px;
-    list-style: none;
-    a{
-      color: #666;
-      text-decoration: none;
-    }
-  }
-}
-
-/***************************************
-TOPページInfo部分
-***************************************/
-.frontPage-info ul{
-  margin: 0;
-  padding: 0;
-}
-.frontPage-infodate{
-  margin: 0.6em 0;
-  list-style: none;
-  a{
-    color: #000;
-    font-weight: bold;
-    text-decoration: none;
-  }
-}
-
-/***************************************
-TOPページ検索部分
-***************************************/
-// 検索窓全体設定
+// グーグルカスタム検索窓共通
 #gsc{
   margin:0 auto;
   position:relative;
@@ -559,9 +269,58 @@ TOPページ検索部分
   }
 }
 
-/***************************************
-「タグから見る」部分 ※ブログ本文内タグ表示とも一部共通
-***************************************/
+// カテゴリの調整（TOP／記事共通）
+.categoryArea{
+  display: inline-block;
+  
+  span{
+    display: inline-block;
+    min-width: 80px;
+    letter-spacing: 0.1em;
+    padding: 0;
+    
+    a{
+      color: #555;
+      background: white;
+      text-decoration: none;
+      font-weight: bold;
+      padding: 0 15px 0 8px;
+      border-left-width: 10px;
+      border-left-style: solid;
+      border-left-color: #000000;
+      
+      //カテゴリの色変更
+      &.category-mati_1{
+        border-left-color: #F78181;
+      }
+      &.category-mati_2{
+        border-left-color: #F5DA81;
+      }
+      &.category-traffic{
+        border-left-color: #F3F781;
+      }
+      &.category-business{
+        border-left-color: #81F781;
+      }
+      &.category-sightseeing{
+        border-left-color: #81BEF7;
+      }
+      &.category-interview{
+        border-left-color: #9F81F7;
+      }
+      &.category-other{
+        border-left-color: #DA81F5;
+      }
+      &.category-default{
+        border-left-color: #000000;
+      }
+
+    }
+    
+  }
+}
+
+//タグから見る
 .tagcloud{
   ul{
     margin: 0 17px 0 0;
@@ -569,7 +328,7 @@ TOPページ検索部分
     display: flex;
     flex-wrap: wrap;
   }
-  //「タグから見る」のタグ個別見た目設定
+  //タグ個別見た目設定
   li{
     font-size: 13px;
     font-weight: bold;
@@ -588,30 +347,250 @@ TOPページ検索部分
   }
 }
 
-// TOPページのタグクラウドのみPHP処理が異なるため別途調整
-// 各タグの名称手前に＃を置く
-#frontPage-others .tagcloud a:before{
-    content: "#"
+.visible-phone {
+  display: none;
+}
+
+/*
+■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■
+TOPページ（フロントページ）の表示設定
+■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■
+/***************************************
+共通設定
+***************************************/
+// 見出し設定
+#frontPage-wrap h2{
+  font-size: 21px;
+  letter-spacing: 0.05em;
+  margin: 0;
+  padding: 0;
+}
+
+//全体の表示設定
+#frontPage-body{
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  #frontPage-topics {
+    width: 100%;
+  }
 }
 
 /***************************************
-TOPページのFlexおよび横幅調整
+TOPページ記事エリアの表示指定
+***************************************/
+// 記事ブロックの表示
+#frontPage-topics {
+  
+  // 該当記事のタイトル（短文題でも高さを同一に
+   h2{
+    //min-height: 2.5em;
+    a{
+      color: #000;
+      text-decoration: none;
+    }
+  }
+  
+  img{
+    max-width: 100%;
+    height: auto;
+  }
+  
+  .articleBlock{
+    display: flex;
+    position: relative;
+    margin-bottom: 50px;
+    &:last-child{
+      margin-bottom: 25px;
+    }
+    
+    //最新投稿にはアイコンを表示
+    &:first-child{
+      .articleInfo::after{
+        position: absolute;
+        display: block;
+        content: "NEW！";
+        color: red;
+        font-size: 0.9em;
+        font-weight: bold;
+        width: 4em;
+        height: 1em;
+        right: 0;
+        bottom: 6px; //何故かずれるので微調整
+      }
+    }
+  }
+  .articleInfo{
+    flex: 1;
+    position: relative;
+    min-height: 185px;
+    padding-left: 300px;
+    
+    .frontPage-date{
+      position: absolute;
+      left: auto;
+      bottom: 0;
+    }
+  }
+  .articleThumb{
+    width: 280px;
+    height: 185px;
+    margin-right: 20px;
+    overflow: hidden;
+    position: absolute;
+    top: 0;
+    left: 0;
+    
+    .topicCard{
+      width: 100%;
+      height: 100%;
+      color: #aaaaaa;
+      text-decoration: none;
+      display: block;
+      position: relative;
+      background: #eeeeee;
+      &::after{
+        width: 100%;
+        height: 1em;
+        display: block;
+        z-index: 1;
+        content: "No Image";
+        font-weight: bold;
+        text-align: center;
+        position: absolute;
+        top: 80px;
+        left: 0;
+      }
+      
+      img{
+        display: block;
+        width: 100%;
+        height: auto;
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        margin: auto;
+        z-index: 2;
+      }
+      &:hover{
+        color: #aaaaaa;
+      }
+    }
+    
+  }
+
+  .articleAside{
+    width: 200px;
+    margin-left: 20px;
+    padding-left: 20px;
+    border-left: 1px solid #333;
+    position: relative;
+
+    .articleAuthor{
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      margin: 0 auto;
+      dd{
+        margin: 0;
+      }
+      .articleAuthorName{
+        display: block;
+        width: 100%;
+        margin-bottom: 10px;
+      }
+      .articleAuthorDesc {
+        width: 4em;
+        margin-right: 1em;
+        display: inline-block;
+      }
+      .articleAuthorImg{
+        display: inline-block;
+        width: 100px;
+        height: 100px;
+        margin-bottom: 10px;
+        img{
+          border-radius: 50%;
+        }
+      }
+    }
+    
+    .articleView{
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      padding-left: 20px;
+    }
+  
+  }
+  
+  .categoryArea{
+    position: absolute;
+    top: 3px;
+    left: 3px;
+    z-index: 3;
+    font-size: 0.9em;
+    margin-right: 10px;
+    a {
+      display: block;
+      margin-bottom: 3px;
+    }
+  }
+  
+}
+
+// 該当記事の日付情報表示
+.frontPage-date{
+  font-size: 14px;
+  font-weight: bold;
+}
+// 該当記事の抜粋文表示
+.frontPage-excerpt p{
+  padding-bottom: 1em;
+}
+// 該当記事のタグ一覧表示
+.frontPage-tags{
+  margin: 0 0 1em 1em;
+  // 記事に紐づく全てのタグを横並びにする
+  ul{
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0;
+    padding: 0;
+  }
+  // 該当記事のタグ見た目設定
+  li{
+    color: #666;
+    font-size: 13px;
+    font-weight: bold;
+    margin: 0 1em 0.5em 0;
+    padding: 0 3px;
+    border: 1px solid #999;
+    border-radius: 5px;
+    list-style: none;
+    a{
+      color: #666;
+      text-decoration: none;
+    }
+  }
+}
+
+
+/***************************************
+TOPページotherエリア
 ***************************************/
 #frontPage-others{
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
   margin-bottom: 40px;
-  padding-top: 20px;
+  padding-top: 25px;
   
   .otherContents{
     width: 47.5%;
     > div {
       margin-bottom: 30px;
       padding-left: 13px;
-    }
-    .tagcloud {
-      margin-bottom: 20px;
     }
   }
   
@@ -623,7 +602,29 @@ TOPページのFlexおよび横幅調整
   .googlesearch {
     padding-right: 30px;
   }
-    
+  
+  .tagcloud {
+    margin-bottom: 20px;
+    a:before{
+      // TOPページのタグクラウドのみPHP処理が異なるため別途調整 各タグの名称手前に＃を置く
+      content: "#"
+    }
+  }
+  
+  .frontPage-info ul{
+    margin: 0;
+    padding: 0;
+  }
+  .frontPage-infodate{
+    margin: 0.6em 0;
+    list-style: none;
+    a{
+      color: #000;
+      font-weight: bold;
+      text-decoration: none;
+    }
+  }
+  
 }
 
 /***************************************
@@ -631,55 +632,152 @@ TOPページレスポンシブ表示設定
 ***************************************/
 /* 基本表示 */
 @media screen and (max-width:1110px){
-    .frontPage-newTopic, .frontPage-randomTopic, .tag-and-search, .frontPage-info{
-        width: 100%;
+  .frontPage-newTopic,
+  #frontPage-others .otherContents{
+      width: 100%;
+  }
+  #frontPage-topics {
+    .articleInfo{
+      min-height: inherit;
+      padding-left: 0;
     }
-    .tag-and-search{
-        margin: 20px 10px 0 10px;
-        padding-bottom: 0;
+    .articleTitle {
+      margin-bottom: 13px;
     }
+    .articleThumb{
+      position: relative;
+    }
+    .articleAside{
+      width: 100px;
+      margin-left: 15px;
+      padding-left: 15px;
+      .articleAuthor{
+        .articleAuthorDesc {
+          margin-bottom: 20px;
+        }
+        .articleAuthorImg{
+          width: 80px;
+          height: 80px;
+        }
+      }
+    }
+  }
 }
 /* 639px以下、項目を縦1列に */
 @media screen and (max-width: 639px){
-    div #main{
-        padding: 15px;
-        width: auto;
-    }
-    #header .alignleft{
+  div #main{
+      padding: 15px;
+      width: auto;
+  }
+  #header {
+    .alignleft{
         display: block;
         text-align: center;
         margin: 0;
     }
-    #h-top #site-description{
-        font-size:20px;
+    #h-top {
+      #site-description{
+          font-size:20px;
+      }
+      .siteSubDescription {
+        width: 100%;
+        text-align: center;
+        left: inherit;
+        bottom: inherit;
+      }
     }
-    #site-title{
-        margin: 50px auto 0;
-        width: 70%;
-    }
-    .frontPage-infodate span{
-        display: block;
-    }
+  }
+  #site-title{
+      margin: 50px auto 0;
+      width: 70%;
+  }
+  .frontPage-infodate span{
+      display: block;
+  }
 }
 /* 500px以下、モバイル想定 */
 @media screen and (max-width: 500px){
-    #header .alignleft{
+  .visible-phone {
+    display: block;
+  }
+  div #main{
+      margin: 0;
+  }
+  #header {
+    .alignleft{
         display: block;
     }
-    #h-top #site-description{
+    #gnav-menu {
+      top: 15px;
+      right: 15px;
+    }
+    #h-top {
+      #site-description{
         font-size:14px;
+      }
+      .siteSubDescription{
+        font-size: 12px;
+      }
     }
-    div #main{
-        margin: 0;
+  }
+  
+  #frontPage-topics {
+    .articleBlock{
+      display: block;
+      margin: 10px 10px 30px 10px;
     }
-    /* 該当記事の抜粋文表示 */
-    .frontPage-excerpt p{ 
-        margin: 0 0 10px 0;
+    .articleThumb{
+      width: 100%;
+      height: 230px;
     }
-    /* 該当記事のタグ一覧表示 */
-    .frontPage-tags{
-        margin: 0 0 1em 0;
+    .frontPage-excerpt {
+      padding: 10px 0;
     }
+    .articleAside{
+      display: none;
+      width: 100%;
+      margin-left: 0;
+      padding-left: 0;
+      padding-top: 15px;
+      border-left: none;
+      .articleAuthor{
+        .articleAuthorName {
+          width: auto;
+        }
+        .articleAuthorDesc {
+          width: auto;
+          //margin-bottom: 20px;
+        }
+        .articleAuthorImg{
+          //width: 80px;
+          //height: 80px;
+        }
+      }
+      
+      .articleView {
+        padding-left: 0;
+      }
+      
+    }
+  }
+  
+  #frontPage-others {
+    .frontOtherHeading {
+      margin: 0 0 13px 0;
+    }
+    .frontPage-info {
+      padding-left: 13px;
+    }
+  }
+  
+  /* 該当記事の抜粋文表示 */
+  .frontPage-excerpt p{ 
+      margin: 0 0 10px 0;
+  }
+  /* 該当記事のタグ一覧表示 */
+  .frontPage-tags{
+      margin: 0 0 1em 0;
+  }
 }
 
 /*

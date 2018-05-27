@@ -38,18 +38,39 @@ Template Name: Top
         ?>
           <article class="articleBlock">
 
-            <!-- サムネイル画像 -->
-            <div class="articleThumb">
-              <a class="topicCard" href="<?php the_permalink() ?>">
-                <?php the_post_thumbnail('medium'); ?>
-              </a>
-            </div>
-            
-            <!-- 記事情報と抜粋 -->
+            <!-- 記事情報 -->
             <div class="articleInfo">
-              <h2>
+              <h2 class="articleTitle">
                 <?php the_title(); ?>
               </h2>
+              
+              <div class="articleThumb">
+                <a class="topicCard" href="<?php the_permalink() ?>">
+                  <?php the_post_thumbnail('medium'); ?>
+                </a>
+                <!-- カテゴリ -->
+                <?php if ( is_category_visible() &&  get_the_category() ): ?>
+                <div class="categoryArea">
+
+                  <span class="category">
+                  <?php
+                    $categories = get_the_category();
+                    $separator = ' ';
+                    $output = '';
+                    if ( $categories ) {
+                      foreach( $categories as $category ) {
+                        $output .= '<a href="' . get_category_link( $category->term_id ) . '" class="category-' 
+                          . $category->slug
+                          . '">' . $category->cat_name . '</a>' . $separator;
+                      }
+                      echo trim( $output, $separator );
+                    }
+                    ?>
+                  </span>
+                </div>
+                <?php endif; //is_category_visible?>
+              </div>
+              
               <div class="frontPage-excerpt">
                 <?php the_excerpt(); ?>
               </div>
@@ -73,28 +94,6 @@ Template Name: Top
                 <?php if(function_exists('the_views')) { the_views(); } ?>
               </div>
             </div>
-
-            <!-- カテゴリ -->
-            <?php if ( is_category_visible() &&  get_the_category() ): ?>
-            <div class="categoryArea">
-             
-              <span class="category">
-              <?php
-                $categories = get_the_category();
-                $separator = ' ';
-                $output = '';
-                if ( $categories ) {
-                  foreach( $categories as $category ) {
-                    $output .= '<a href="' . get_category_link( $category->term_id ) . '" class="category-' 
-                      . $category->slug
-                      . '">' . $category->cat_name . '</a>' . $separator;
-                  }
-                  echo trim( $output, $separator );
-                }
-                ?>
-              </span>
-            </div>
-            <?php endif; //is_category_visible?>
 
           </article>
           <?php

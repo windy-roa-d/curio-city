@@ -9,7 +9,7 @@
 /////////////////////////////////
 (function($){
   $('#gnav-menu').appendTo('#header');
-  $('#h-top').append('<div class="siteSubDescription"><p>当サイトは「まち」に散らばる様々なトピックを扱い、<br>「まち」のこれまで・いま・これからについて伝えていくサイトです。</p></div>');
+  $('#h-top').append('<div class="siteSubDescription"><p>当サイトは「まち」に散らばる様々なトピックを扱い、<br>「まち」のこれまで・いま・これからについて<br class="visible-phone">伝えていくサイトです。</p></div>');
   $('#mobile-menu').remove();
   $('#chapter1_content p').replaceWith($('.widget_popular_ranking')).removeClass('default');
   //$('.widget_popular_ranking').appendTo('#chapter1_content').removeClass('default');

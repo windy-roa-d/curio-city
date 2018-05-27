@@ -161,15 +161,15 @@ ul.snsp li a span:hover {
   width: 100%;
 }
 
-#body #gnav-menu {
-  display: none;
-}
-
 /***************************************
 body共通調整 
 ***************************************/
 body {
   position: relative;
+}
+
+#body #gnav-menu {
+  display: none;
 }
 
 #main {
@@ -187,258 +187,6 @@ hr {
   border: 1px solid #000;
 }
 
-.categoryArea {
-  display: inline-block;
-}
-.categoryArea span {
-  display: inline-block;
-  min-width: 80px;
-  letter-spacing: 0.1em;
-  padding: 0;
-}
-.categoryArea span a {
-  color: #555;
-  background: white;
-  text-decoration: none;
-  font-weight: bold;
-  padding: 0 15px 0 8px;
-  border-left-width: 10px;
-  border-left-style: solid;
-  border-left-color: #000000;
-}
-.categoryArea span a.category-mati_1 {
-  border-left-color: #F78181;
-}
-.categoryArea span a.category-mati_2 {
-  border-left-color: #F5DA81;
-}
-.categoryArea span a.category-traffic {
-  border-left-color: #F3F781;
-}
-.categoryArea span a.category-business {
-  border-left-color: #81F781;
-}
-.categoryArea span a.category-sightseeing {
-  border-left-color: #81BEF7;
-}
-.categoryArea span a.category-interview {
-  border-left-color: #9F81F7;
-}
-.categoryArea span a.category-other {
-  border-left-color: #DA81F5;
-}
-.categoryArea span a.category-default {
-  border-left-color: #000000;
-}
-
-/*
-■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■
-TOPページ（フロントページ）の表示設定
-■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■
-/***************************************
-共通設定
-***************************************/
-#frontPage-wrap h2 {
-  font-size: 21px;
-  letter-spacing: 0.05em;
-  margin: 0;
-  padding: 0;
-}
-
-#frontPage-body {
-  display: flex;
-  justify-content: space-between;
-  flex-wrap: wrap;
-}
-#frontPage-body #frontPage-topics {
-  width: 100%;
-}
-
-/***************************************
-TOPページ新着記事の表示指定
-***************************************/
-#frontPage-topics h2 a {
-  color: #000;
-  text-decoration: none;
-}
-#frontPage-topics img {
-  max-width: 100%;
-  height: auto;
-}
-#frontPage-topics .articleBlock {
-  display: flex;
-  position: relative;
-  margin-bottom: 50px;
-}
-#frontPage-topics .articleBlock:last-child {
-  margin-bottom: 25px;
-}
-#frontPage-topics .articleBlock:first-child .articleInfo::after {
-  position: absolute;
-  display: block;
-  content: "NEW！";
-  color: red;
-  font-size: 0.9em;
-  font-weight: bold;
-  width: 4em;
-  height: 1em;
-  right: 0;
-  bottom: 6px;
-}
-#frontPage-topics .articleThumb {
-  width: 280px;
-  height: 185px;
-  margin-right: 20px;
-  overflow: hidden;
-}
-#frontPage-topics .articleThumb .topicCard {
-  width: 100%;
-  height: 100%;
-  color: #aaaaaa;
-  text-decoration: none;
-  display: block;
-  position: relative;
-  background: #eeeeee;
-}
-#frontPage-topics .articleThumb .topicCard::after {
-  width: 100%;
-  height: 1em;
-  display: block;
-  z-index: 1;
-  content: "No Image";
-  font-weight: bold;
-  text-align: center;
-  position: absolute;
-  top: 80px;
-  left: 0;
-}
-#frontPage-topics .articleThumb .topicCard img {
-  display: block;
-  width: 100%;
-  height: auto;
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  margin: auto;
-  z-index: 2;
-}
-#frontPage-topics .articleThumb .topicCard:hover {
-  color: #aaaaaa;
-}
-#frontPage-topics .categoryArea {
-  position: absolute;
-  top: 3px;
-  left: 3px;
-  z-index: 3;
-  font-size: 0.9em;
-  margin-right: 10px;
-}
-#frontPage-topics .categoryArea a {
-  display: block;
-  margin-bottom: 3px;
-}
-#frontPage-topics .articleInfo {
-  flex: 1;
-  position: relative;
-  padding-bottom: 25px;
-}
-#frontPage-topics .articleInfo .frontPage-date {
-  position: absolute;
-  left: 0;
-  bottom: 0;
-}
-#frontPage-topics .articleAside {
-  width: 200px;
-  margin-left: 20px;
-  padding-left: 20px;
-  border-left: 1px solid #333;
-  position: relative;
-}
-#frontPage-topics .articleAside .articleAuthor {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  margin: 0 auto;
-}
-#frontPage-topics .articleAside .articleAuthor dd {
-  margin: 0;
-}
-#frontPage-topics .articleAside .articleAuthor .articleAuthorName {
-  display: block;
-  width: 100%;
-  margin-bottom: 10px;
-}
-#frontPage-topics .articleAside .articleAuthor .articleAuthorDesc {
-  width: 4em;
-  margin-right: 1em;
-  display: inline-block;
-}
-#frontPage-topics .articleAside .articleAuthor .articleAuthorImg {
-  display: inline-block;
-  width: 100px;
-  height: 100px;
-  margin-bottom: 10px;
-}
-#frontPage-topics .articleAside .articleAuthor .articleAuthorImg img {
-  border-radius: 50%;
-}
-#frontPage-topics .articleAside .articleView {
-  position: absolute;
-  left: 0;
-  bottom: 0;
-  padding-left: 20px;
-}
-
-.frontPage-date {
-  font-size: 14px;
-  font-weight: bold;
-}
-
-.frontPage-tags {
-  margin: 0 0 1em 1em;
-}
-.frontPage-tags ul {
-  display: flex;
-  flex-wrap: wrap;
-  margin: 0;
-  padding: 0;
-}
-.frontPage-tags li {
-  color: #666;
-  font-size: 13px;
-  font-weight: bold;
-  margin: 0 1em 0.5em 0;
-  padding: 0 3px;
-  border: 1px solid #999;
-  border-radius: 5px;
-  list-style: none;
-}
-.frontPage-tags li a {
-  color: #666;
-  text-decoration: none;
-}
-
-/***************************************
-TOPページInfo部分
-***************************************/
-.frontPage-info ul {
-  margin: 0;
-  padding: 0;
-}
-
-.frontPage-infodate {
-  margin: 0.6em 0;
-  list-style: none;
-}
-.frontPage-infodate a {
-  color: #000;
-  font-weight: bold;
-  text-decoration: none;
-}
-
-/***************************************
-TOPページ検索部分
-***************************************/
 #gsc {
   margin: 0 auto;
   position: relative;
@@ -489,9 +237,50 @@ TOPページ検索部分
   vertical-align: top;
 }
 
-/***************************************
-「タグから見る」部分 ※ブログ本文内タグ表示とも一部共通
-***************************************/
+.categoryArea {
+  display: inline-block;
+}
+.categoryArea span {
+  display: inline-block;
+  min-width: 80px;
+  letter-spacing: 0.1em;
+  padding: 0;
+}
+.categoryArea span a {
+  color: #555;
+  background: white;
+  text-decoration: none;
+  font-weight: bold;
+  padding: 0 15px 0 8px;
+  border-left-width: 10px;
+  border-left-style: solid;
+  border-left-color: #000000;
+}
+.categoryArea span a.category-mati_1 {
+  border-left-color: #F78181;
+}
+.categoryArea span a.category-mati_2 {
+  border-left-color: #F5DA81;
+}
+.categoryArea span a.category-traffic {
+  border-left-color: #F3F781;
+}
+.categoryArea span a.category-business {
+  border-left-color: #81F781;
+}
+.categoryArea span a.category-sightseeing {
+  border-left-color: #81BEF7;
+}
+.categoryArea span a.category-interview {
+  border-left-color: #9F81F7;
+}
+.categoryArea span a.category-other {
+  border-left-color: #DA81F5;
+}
+.categoryArea span a.category-default {
+  border-left-color: #000000;
+}
+
 .tagcloud ul {
   margin: 0 17px 0 0;
   padding: 0;
@@ -515,19 +304,214 @@ TOPページ検索部分
   text-decoration: none;
 }
 
-#frontPage-others .tagcloud a:before {
-  content: "#";
+.visible-phone {
+  display: none;
+}
+
+/*
+■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■
+TOPページ（フロントページ）の表示設定
+■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■
+/***************************************
+共通設定
+***************************************/
+#frontPage-wrap h2 {
+  font-size: 21px;
+  letter-spacing: 0.05em;
+  margin: 0;
+  padding: 0;
+}
+
+#frontPage-body {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+#frontPage-body #frontPage-topics {
+  width: 100%;
 }
 
 /***************************************
-TOPページのFlexおよび横幅調整
+TOPページ記事エリアの表示指定
+***************************************/
+#frontPage-topics h2 a {
+  color: #000;
+  text-decoration: none;
+}
+#frontPage-topics img {
+  max-width: 100%;
+  height: auto;
+}
+#frontPage-topics .articleBlock {
+  display: flex;
+  position: relative;
+  margin-bottom: 50px;
+}
+#frontPage-topics .articleBlock:last-child {
+  margin-bottom: 25px;
+}
+#frontPage-topics .articleBlock:first-child .articleInfo::after {
+  position: absolute;
+  display: block;
+  content: "NEW！";
+  color: red;
+  font-size: 0.9em;
+  font-weight: bold;
+  width: 4em;
+  height: 1em;
+  right: 0;
+  bottom: 6px;
+}
+#frontPage-topics .articleInfo {
+  flex: 1;
+  position: relative;
+  min-height: 185px;
+  padding-left: 300px;
+}
+#frontPage-topics .articleInfo .frontPage-date {
+  position: absolute;
+  left: auto;
+  bottom: 0;
+}
+#frontPage-topics .articleThumb {
+  width: 280px;
+  height: 185px;
+  margin-right: 20px;
+  overflow: hidden;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+#frontPage-topics .articleThumb .topicCard {
+  width: 100%;
+  height: 100%;
+  color: #aaaaaa;
+  text-decoration: none;
+  display: block;
+  position: relative;
+  background: #eeeeee;
+}
+#frontPage-topics .articleThumb .topicCard::after {
+  width: 100%;
+  height: 1em;
+  display: block;
+  z-index: 1;
+  content: "No Image";
+  font-weight: bold;
+  text-align: center;
+  position: absolute;
+  top: 80px;
+  left: 0;
+}
+#frontPage-topics .articleThumb .topicCard img {
+  display: block;
+  width: 100%;
+  height: auto;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  z-index: 2;
+}
+#frontPage-topics .articleThumb .topicCard:hover {
+  color: #aaaaaa;
+}
+#frontPage-topics .articleAside {
+  width: 200px;
+  margin-left: 20px;
+  padding-left: 20px;
+  border-left: 1px solid #333;
+  position: relative;
+}
+#frontPage-topics .articleAside .articleAuthor {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin: 0 auto;
+}
+#frontPage-topics .articleAside .articleAuthor dd {
+  margin: 0;
+}
+#frontPage-topics .articleAside .articleAuthor .articleAuthorName {
+  display: block;
+  width: 100%;
+  margin-bottom: 10px;
+}
+#frontPage-topics .articleAside .articleAuthor .articleAuthorDesc {
+  width: 4em;
+  margin-right: 1em;
+  display: inline-block;
+}
+#frontPage-topics .articleAside .articleAuthor .articleAuthorImg {
+  display: inline-block;
+  width: 100px;
+  height: 100px;
+  margin-bottom: 10px;
+}
+#frontPage-topics .articleAside .articleAuthor .articleAuthorImg img {
+  border-radius: 50%;
+}
+#frontPage-topics .articleAside .articleView {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  padding-left: 20px;
+}
+#frontPage-topics .categoryArea {
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  z-index: 3;
+  font-size: 0.9em;
+  margin-right: 10px;
+}
+#frontPage-topics .categoryArea a {
+  display: block;
+  margin-bottom: 3px;
+}
+
+.frontPage-date {
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.frontPage-excerpt p {
+  padding-bottom: 1em;
+}
+
+.frontPage-tags {
+  margin: 0 0 1em 1em;
+}
+.frontPage-tags ul {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0;
+  padding: 0;
+}
+.frontPage-tags li {
+  color: #666;
+  font-size: 13px;
+  font-weight: bold;
+  margin: 0 1em 0.5em 0;
+  padding: 0 3px;
+  border: 1px solid #999;
+  border-radius: 5px;
+  list-style: none;
+}
+.frontPage-tags li a {
+  color: #666;
+  text-decoration: none;
+}
+
+/***************************************
+TOPページotherエリア
 ***************************************/
 #frontPage-others {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
   margin-bottom: 40px;
-  padding-top: 20px;
+  padding-top: 25px;
 }
 #frontPage-others .otherContents {
   width: 47.5%;
@@ -536,9 +520,6 @@ TOPページのFlexおよび横幅調整
   margin-bottom: 30px;
   padding-left: 13px;
 }
-#frontPage-others .otherContents .tagcloud {
-  margin-bottom: 20px;
-}
 #frontPage-others .frontOtherHeading {
   font-size: 21px;
   margin: 0 0 13px -13px;
@@ -546,19 +527,57 @@ TOPページのFlexおよび横幅調整
 #frontPage-others .googlesearch {
   padding-right: 30px;
 }
+#frontPage-others .tagcloud {
+  margin-bottom: 20px;
+}
+#frontPage-others .tagcloud a:before {
+  content: "#";
+}
+#frontPage-others .frontPage-info ul {
+  margin: 0;
+  padding: 0;
+}
+#frontPage-others .frontPage-infodate {
+  margin: 0.6em 0;
+  list-style: none;
+}
+#frontPage-others .frontPage-infodate a {
+  color: #000;
+  font-weight: bold;
+  text-decoration: none;
+}
 
 /***************************************
 TOPページレスポンシブ表示設定
 ***************************************/
 /* 基本表示 */
 @media screen and (max-width: 1110px) {
-  .frontPage-newTopic, .frontPage-randomTopic, .tag-and-search, .frontPage-info {
+  .frontPage-newTopic,
+  #frontPage-others .otherContents {
     width: 100%;
   }
 
-  .tag-and-search {
-    margin: 20px 10px 0 10px;
-    padding-bottom: 0;
+  #frontPage-topics .articleInfo {
+    min-height: inherit;
+    padding-left: 0;
+  }
+  #frontPage-topics .articleTitle {
+    margin-bottom: 13px;
+  }
+  #frontPage-topics .articleThumb {
+    position: relative;
+  }
+  #frontPage-topics .articleAside {
+    width: 100px;
+    margin-left: 15px;
+    padding-left: 15px;
+  }
+  #frontPage-topics .articleAside .articleAuthor .articleAuthorDesc {
+    margin-bottom: 20px;
+  }
+  #frontPage-topics .articleAside .articleAuthor .articleAuthorImg {
+    width: 80px;
+    height: 80px;
   }
 }
 /* 639px以下、項目を縦1列に */
@@ -573,9 +592,14 @@ TOPページレスポンシブ表示設定
     text-align: center;
     margin: 0;
   }
-
-  #h-top #site-description {
+  #header #h-top #site-description {
     font-size: 20px;
+  }
+  #header #h-top .siteSubDescription {
+    width: 100%;
+    text-align: center;
+    left: inherit;
+    bottom: inherit;
   }
 
   #site-title {
@@ -589,16 +613,62 @@ TOPページレスポンシブ表示設定
 }
 /* 500px以下、モバイル想定 */
 @media screen and (max-width: 500px) {
-  #header .alignleft {
+  .visible-phone {
     display: block;
-  }
-
-  #h-top #site-description {
-    font-size: 14px;
   }
 
   div #main {
     margin: 0;
+  }
+
+  #header .alignleft {
+    display: block;
+  }
+  #header #gnav-menu {
+    top: 15px;
+    right: 15px;
+  }
+  #header #h-top #site-description {
+    font-size: 14px;
+  }
+  #header #h-top .siteSubDescription {
+    font-size: 12px;
+  }
+
+  #frontPage-topics .articleBlock {
+    display: block;
+    margin: 10px 10px 30px 10px;
+  }
+  #frontPage-topics .articleThumb {
+    width: 100%;
+    height: 230px;
+  }
+  #frontPage-topics .frontPage-excerpt {
+    padding: 10px 0;
+  }
+  #frontPage-topics .articleAside {
+    display: none;
+    width: 100%;
+    margin-left: 0;
+    padding-left: 0;
+    padding-top: 15px;
+    border-left: none;
+  }
+  #frontPage-topics .articleAside .articleAuthor .articleAuthorName {
+    width: auto;
+  }
+  #frontPage-topics .articleAside .articleAuthor .articleAuthorDesc {
+    width: auto;
+  }
+  #frontPage-topics .articleAside .articleView {
+    padding-left: 0;
+  }
+
+  #frontPage-others .frontOtherHeading {
+    margin: 0 0 13px 0;
+  }
+  #frontPage-others .frontPage-info {
+    padding-left: 13px;
   }
 
   /* 該当記事の抜粋文表示 */
