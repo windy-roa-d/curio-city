@@ -483,7 +483,7 @@ TOPページ新着記事の表示指定
 TOPページInfo部分
 ***************************************/
 .frontPage-info ul{
-  margin: 0 17px;
+  margin: 0;
   padding: 0;
 }
 .frontPage-infodate{
@@ -499,9 +499,6 @@ TOPページInfo部分
 /***************************************
 TOPページ検索部分
 ***************************************/
-.googlesearch{
-  padding: 0 50px 15px 0;
-}
 // 検索窓全体設定
 #gsc{
   margin:0 auto;
@@ -538,6 +535,13 @@ TOPページ検索部分
     }
   }
   
+  .gsc-control-cse {
+    padding: 0;
+  }
+  button {
+    margin-bottom: 0;
+  }
+  
   //テキスト入力フォームの枠線と余白設定
   .gsc-input {
     padding-right: 0;
@@ -560,7 +564,7 @@ TOPページ検索部分
 ***************************************/
 .tagcloud{
   ul{
-    margin: 0 17px;
+    margin: 0 17px 0 0;
     padding: 0;
     display: flex;
     flex-wrap: wrap;
@@ -593,20 +597,33 @@ TOPページ検索部分
 /***************************************
 TOPページのFlexおよび横幅調整
 ***************************************/
-#frontPage-topics, #frontPage-others{
-    //display: flex;
-    //flex-wrap: wrap;
-    //justify-content: space-between;
-}
-.frontPage-newTopic, .frontPage-randomTopic{
-    //width: calc(100% - 200px);
-    /* min-width: 300px;
-    margin: 10px; */
-}
-.tag-and-search, .frontPage-info{
-    width:47%;
-    margin: 20px 10px;
-    padding-bottom: 20px;
+#frontPage-others{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin-bottom: 40px;
+  padding-top: 20px;
+  
+  .otherContents{
+    width: 47.5%;
+    > div {
+      margin-bottom: 30px;
+      padding-left: 13px;
+    }
+    .tagcloud {
+      margin-bottom: 20px;
+    }
+  }
+  
+  .frontOtherHeading {
+    font-size: 21px;
+    margin: 0 0 13px -13px;
+  }
+
+  .googlesearch {
+    padding-right: 30px;
+  }
+    
 }
 
 /***************************************
@@ -728,16 +745,6 @@ TOPページレスポンシブ表示設定
     a {
       color: #000000;
       text-decoration: none;
-    }
-  }
-  
-  //検索エリア
-  #gsc {
-    .gsc-control-cse {
-      padding: 0;
-    }
-    button {
-      margin-bottom: 0;
     }
   }
   

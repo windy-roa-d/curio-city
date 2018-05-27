@@ -129,66 +129,76 @@ Template Name: Top
   <hr>
     
   <div id="frontPage-others">
-        
-        <div class="tag-and-search">
-            <div class="googlesearch">
-              <h2>サイト内検索</h2>
-              <script>
-                (function() {
-                  var cx = '010950947954796491421:xgukhz__vy0';
-                  var gcse = document.createElement('script');
-                  gcse.type = 'text/javascript';
-                  gcse.async = true;
-                  gcse.src = 'https://cse.google.com/cse.js?cx=' + cx;
-                  var s = document.getElementsByTagName('script')[0];
-                  s.parentNode.insertBefore(gcse, s);
-                })();
-              </script>
-              <div id="gsc"><gcse:search></gcse:search></div>
-            </div>
-            <div class="tagcloud"><h2>タグから見る</h2>
-            <?php
-                $args = array(
-					'order' 	=> "RAND",
-                    'number' 	=> 15,
-                    'format' 	=> "list",
-                    'smallest'  => 13,
-                    'largest'   => 13,
-                    'unit'   => "px"
-				);
-                $posttags = wp_tag_cloud( $args );
-            ?>
-            
-            </div>
-            
-            <?php get_template_part('sns-pages'); //SNSフォローボタンの呼び出し?>
-        </div>
-                
-        <div class="frontPage-info"><h2>インフォメーション</h2>
-        <aside id="information">
-				<?php /** カスタム投稿タイプ「お知らせ」を表示 */
-				$args = array(
-					'post_type' 		=> 'information',
-					'posts_per_page' 	=> 3,
-				);
-				$information = new WP_Query( $args );
-				if ( $information->have_posts() ) : /** 「お知らせ」用のサブループ開始 */ ?>
-					<ul>
-						<?php while ( $information->have_posts() ) : $information->the_post(); ?>
-							<li class="frontPage-infodate">
-								<a href="<?php the_permalink(); ?>">
-								<span><?php the_time('Y.m.d') ?>&nbsp;&nbsp;</span><span><?php the_title(); ?></span></a>
-							</li>
+    
+    <div class="otherContents">
 
-						<?php endwhile; ?>
-					</ul>
-				<?php else : ?>
-					<p>現在お知らせはありません。</p>
-				<?php endif; /** サブループ終了 */
-				wp_reset_postdata(); ?>
-		</aside><!-- / information -->
+      <div class="googlesearch">
+        <h3 class="frontOtherHeading">サイト内検索</h3>
+        <script>
+          (function() {
+            var cx = '010950947954796491421:xgukhz__vy0';
+            var gcse = document.createElement('script');
+            gcse.type = 'text/javascript';
+            gcse.async = true;
+            gcse.src = 'https://cse.google.com/cse.js?cx=' + cx;
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(gcse, s);
+          })();
+        </script>
+        <div id="gsc">
+          <gcse:search></gcse:search>
+          <span>loading...</span>
         </div>
+      </div>
+      
+      <div class="tagcloud">
+        <h3 class="frontOtherHeading">タグから見る</h3>
+        <?php
+            $args = array(
+                'order' 	=> "RAND",
+                'number' 	=> 15,
+                'format' 	=> "list",
+                'smallest'  => 13,
+                'largest'   => 13,
+                'unit'   => "px"
+            );
+            $posttags = wp_tag_cloud( $args );
+        ?>
+      </div>
+      
+      <div class="snsPagesBtn">
+        <h3 class="frontOtherHeading">SNS</h3>
+        <?php get_template_part('sns-pages'); //SNSフォローボタンの呼び出し?>
+      </div>
+      
     </div>
+    
+    <div class="frontPage-info otherContents">
+      <h3 class="frontOtherHeading">インフォメーション</h3>
+      <aside id="information">
+        <?php /** カスタム投稿タイプ「お知らせ」を表示 */
+          $args = array(
+              'post_type' 		=> 'information',
+              'posts_per_page' 	=> 3,
+          );
+          $information = new WP_Query( $args );
+          if ( $information->have_posts() ) : /** 「お知らせ」用のサブループ開始 */ ?>
+        <ul>
+          <?php while ( $information->have_posts() ) : $information->the_post(); ?>
+          <li class="frontPage-infodate">
+            <a href="<?php the_permalink(); ?>">
+              <span><?php the_time('Y.m.d') ?>&nbsp;&nbsp;</span><span><?php the_title(); ?></span></a>
+          </li>
+          <?php endwhile; ?>
+        </ul>
+        <?php else : ?>
+        <p>現在お知らせはありません。</p>
+        <?php endif; /** サブループ終了 */
+          wp_reset_postdata(); ?>
+      </aside>
+    </div>
+    
+  </div>
     
 </div><!-- /frontPage-wrap -->
 
