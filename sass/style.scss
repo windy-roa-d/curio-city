@@ -16,10 +16,8 @@ Simplicity子テーマのCSSです。
 */
 
 /*
-■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■
-サイト共通の全体設定
-■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■
-/***************************************
+■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■サイト共通の全体設定
+■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■/***************************************
 ヘッダータイトル部分
 ***************************************/
 // モバイルメニューボタン固定に伴うヘッダーの表示位置調整
@@ -54,26 +52,28 @@ Simplicity子テーマのCSSです。
   margin-bottom:0px;
 }
 // SNSフォローボタンの色変更
-ul.snsp li.twitter-page a span{
-  background-color:#55ACEE !important;
-}
-ul.snsp li.facebook-page a span{
-  background-color:#3C5A99 !important;
-}
-ul.snsp li.google-plus-page a span{
-  background-color:#DD4B39 !important;
-}
-ul.snsp li.feedly-page a span{
-  background-color:#87BD33 !important;
-}
-ul.snsp li.instagram-page a span{
-  background-color:#3f729b !important;
-}
-ul.snsp li.rss-page a span{
-  background-color:#FE9900 !important;
-}
-ul.snsp li a span:hover{
-  opacity:0.7 !important;
+ul.snsp li {
+  &.twitter-page a span{
+    background-color:#55ACEE !important;
+  }
+  &.facebook-page a span{
+    background-color:#3C5A99 !important;
+  }
+  &.google-plus-page a span{
+    background-color:#DD4B39 !important;
+  }
+  &.feedly-page a span{
+    background-color:#87BD33 !important;
+  }
+  &.instagram-page a span{
+    background-color:#3f729b !important;
+  }
+  &.rss-page a span{
+    background-color:#FE9900 !important;
+  }
+  a span:hover{
+    opacity:0.7 !important;
+  }
 }
 
 /***************************************
@@ -131,10 +131,6 @@ ul.snsp li a span:hover{
 
 //ドロップダウンメニュー
 #navi {
-  //position: fixed;
-  //top: 0;
-  //left: 0;
-  //right: 0;
   width: 950px;
   margin: auto;
   z-index: 99;
@@ -179,7 +175,6 @@ ul.snsp li a span:hover{
   }
 
 }
-
 
 /***************************************
 body共通調整 
@@ -347,15 +342,28 @@ hr {
   }
 }
 
+//インフォメーションエリア（記事ページにもある）
+.frontPage-info ul{
+    margin: 0;
+    padding: 0;
+  }
+  .frontPage-infodate{
+    margin: 0.6em 0;
+    list-style: none;
+    a{
+      color: #000;
+      font-weight: bold;
+      text-decoration: none;
+    }
+  }
+
 .visible-phone {
   display: none;
 }
 
 /*
-■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■
-TOPページ（フロントページ）の表示設定
-■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■
-/***************************************
+■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■TOPページ（フロントページ）の表示設定
+■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■/***************************************
 共通設定
 ***************************************/
 // 見出し設定
@@ -611,20 +619,6 @@ TOPページotherエリア
     }
   }
   
-  .frontPage-info ul{
-    margin: 0;
-    padding: 0;
-  }
-  .frontPage-infodate{
-    margin: 0.6em 0;
-    list-style: none;
-    a{
-      color: #000;
-      font-weight: bold;
-      text-decoration: none;
-    }
-  }
-  
 }
 
 /***************************************
@@ -781,185 +775,234 @@ TOPページレスポンシブ表示設定
 }
 
 /*
-■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■
-記事本文ページ＆固定ページの表示設定
-■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■
-/***************************************
-記事本文の表示設定
+■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■記事本文ページ＆固定ページの表示設定
+■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■/***************************************
+共通設定
 ***************************************/
-.article header {
+.single,
+.page {
+  // 余白調整
+  .entry-content {
+    margin-bottom: 20px;
+  }
+  
+  //画像キャプションの表示設定
+  .wp-caption {
+    padding: 0;
+    border-radius: 0;
+  }
+  .wp-caption-text,
+  .gallery-caption{
+    font-size: 80%;
+    margin: 0.5em 1em;
+  }
+  div.timeline-Header{
+    display: none;
+  }
+  
+  //フッター箇所の一部非表示設定
+  footer .footer-post-meta .post-author{
+    display: none;
+  }
+}
+
+/***************************************
+記事ページのみ、記事本文の表示設定
+***************************************/
+.single {
+  .article header {
     background: #eee;
     padding: 15px 15px 20px;
     border-radius: 10px;
-  h1 {
-    margin: 0;
+    h1 {
+      margin: 0;
+    }
   }
-}
-.categoryArea{
-  margin-bottom: 10px;
-  a {
+  .categoryArea {
+    a {
+      display: inline-block;
+      margin-right: 2px;
+      margin-bottom: 10px;
+    }
+  }
+  .postDateArea {
     display: inline-block;
-    margin-right: 2px;
+    span {
+      display: inline-block;
+    }
   }
-}
-.postDateArea {
-  display: inline-block;
-}
-.post-meta{
+  .post-meta {
     text-align: left;
     padding-bottom: 0;
     margin-bottom: 15px;
-    background-color: inherit
-}
-/* 投稿および更新日の調整 */
-.post-meta .fa{ /* 既存アイコン非表示 */
-    display: none;
-}
-.post-meta .post-date,
-.post-meta .post-update{
-    font-weight: bold;
-}
-.post-meta .post-date .entry-date::before{
-    content: "公開："
-}
-.post-meta .post-update .entry-date::before{
-    content: "最終更新："
-}
-
-/* 余白調整 */
-.entry-content {
-    margin-bottom: 20px;
-}
-/***************************************
-サイドバー表示設定
-***************************************/
-#sidebar {
-  float: left;
-  
-  h3 {
-    margin-top: 0;
-    padding-bottom: 5px;
-    border-bottom: 2px solid #000;
-    a {
-      color: #000000;
-      text-decoration: none;
-    }
-  }
-  
-  .widget_popular_ranking {
-    //JS移動前は非表示に
-    visibility: hidden;
-    height: 0px;
-    overflow: hidden;
-    margin-bottom: 0;
-    h3 {
+    background-color: inherit;
+    .fa {//既存アイコン非表示
       display: none;
     }
-  }
-  
-}
-.widget_new_entries ul li img,
-.widget_new_popular ul li img,
-.widget_popular_ranking ul li img {
-    width: 60px;
-    height: 60px;
-    border-radius: 10px;
-}
-
-#old_entries {
-  #searchform {
-    margin-top: 0;
-  }
-}
-
-#sideTabArea {
-  margin-bottom: 45px;
-  
-  //タブ選択エリア
-  .sideTabList {
-    display: flex;
-    border-top: 1px solid #000000;
-    border-left: 1px solid #000000;
-    border-bottom: 2px solid #000000;
-    .tabItem {
-      flex: 1;
-      font-size: 20px;
-      padding: 5px 0;
-      line-height: 130%;
-      text-align: center;
+    .post-date, .post-update {
       font-weight: bold;
-      position: relative;
-      cursor: pointer;
-      border-right: 1px solid #000000;
+    }
+    .post-date .entry-date::before {
+      content: "公開："
+    }
+    .post-update .entry-date::before {
+      content: "最終更新："
     }
   }
-  //タブ内容エリア
-  .tabContent {
-    display: none;
-    margin: 16px 0;
-    ul {
-      margin: 0;
-      padding-left: 0;
-    }
-    .tagcloud {
-      padding-top: 5px;
+  
+  //サイドバー表示設定
+  #sidebar {
+    float: left;
+    h3 {
+      margin-top: 0;
+      padding-bottom: 5px;
+      border-bottom: 2px solid #000;
+      a {
+        color: #000000;
+        text-decoration: none;
+      }
     }
     .widget_popular_ranking {
-      visibility: visible;
-      height: auto;
+      //JS移動前は非表示に
+      visibility: hidden;
+      height: 0px;
+      overflow: hidden;
+      margin-bottom: 0;
+      h3 {
+        display: none;
+      }
     }
-    .default{
-      min-height: 268px;
+    
+    #sideTabArea {
+      margin-bottom: 45px;
+      //タブ選択エリア
+      .sideTabList {
+        display: flex;
+        border-top: 1px solid #000000;
+        border-left: 1px solid #000000;
+        border-bottom: 2px solid #000000;
+        .tabItem {
+          flex: 1;
+          font-size: 20px;
+          padding: 5px 0;
+          line-height: 130%;
+          text-align: center;
+          font-weight: bold;
+          position: relative;
+          cursor: pointer;
+          border-right: 1px solid #000000;
+        }
+      }
+      //タブ内容エリア
+      .tabContent {
+        display: none;
+        margin: 16px 0;
+        ul {
+          margin: 0;
+          padding-left: 0;
+        }
+        .tagcloud {
+          padding-top: 5px;
+        }
+        .widget_popular_ranking {
+          visibility: visible;
+          height: auto;
+        }
+        .default {
+          min-height: 268px;
+        }
+      }
+      //タブ切り替えの動作
+      input[name="tabItem"] {
+        display: none;
+      }
+      #chapter1:checked~#chapter1_content,
+      #chapter2:checked~#chapter2_content,
+      #chapter3:checked~#chapter3_content,
+      {
+        display: block;
+      }
+      //選択されたタブのデザイン
+      #chapter1:checked~.sideTabList .chapter1,
+      #chapter2:checked~.sideTabList .chapter2,
+      #chapter3:checked~.sideTabList .chapter3 {
+        background: #eeeeee;
+      }
     }
+    
+    .widget_new_entries ul li img,
+    .widget_new_popular ul li img,
+    .widget_popular_ranking ul li img {
+      width: 60px;
+      height: 60px;
+      border-radius: 10px;
+    }
+    #old_entries {
+      #searchform {
+        margin-top: 0;
+      }
+    }
+
+    //タグクラウド部分
+    .tagcloud {
+      .tagcloud-heading {
+        text-align: left;
+        margin: 0;
+      }
+      ul {
+        margin: 0;
+        li {
+          font-size: 11px;
+          font-weight: normal;
+        }
+      }
+      hr {
+        color: #ccc;
+        border: 1px solid #ccc;
+        margin-bottom: 14px;
+      }
+    }
+
+    //サイドバー内更新情報
+    #information {
+      .frontPage-infodate {
+        margin: 1em 0;
+        line-height: 1.3;
+        span {
+          display: block;
+        }
+      }
+      ul {
+        margin: 0;
+        padding: 0;
+      }
+    }
+    
   }
-  //タブ切り替えの動作
-  input[name="tabItem"] {
-    display: none;
-  }
-  #chapter1:checked~#chapter1_content,
-  #chapter2:checked~#chapter2_content,
-  #chapter3:checked~#chapter3_content,
-  {
-    display: block;
-  }
-  //選択されたタブのデザイン
-  #chapter1:checked~.sideTabList .chapter1,
-  #chapter2:checked~.sideTabList .chapter2,
-  #chapter3:checked~.sideTabList .chapter3 {
-    background: #eeeeee;
-  }
-}
-/***************************************
-タグクラウド部分
-***************************************/
-.tagcloud .tagcloud-heading{
-  text-align: left;
-  margin: 0;
-}
-.tagcloud hr{
-  color: #ccc;
-  border: 1px solid #ccc;
-  margin-bottom: 14px;
+  
 }
 
-/************************************
-画像キャプションの表示設定
-************************************/
-.wp-caption {
-  padding: 0;
-  border-radius: 0;
-}
-.wp-caption-text,
-.gallery-caption{
-  font-size: 80%;
-  margin: 0.5em 1em;
-}
-div.timeline-Header{
-    display: none;   
-}
-/************************************
-フッター箇所の一部非表示設定
-************************************/
-footer .footer-post-meta .post-author{
+/***************************************
+固定ページのみ表示設定
+***************************************/
+.page {
+  .post-meta {
+    text-align: left;
+    background-color: #fff;
+    padding-bottom: 5px;
+    border-bottom: 1px solid #000;
+  }
+  #sidebar {
     display: none;
+  }
+  #main {
+    width: auto;
+    height: auto;
+    float: none;
+    border: none;
+    margin: 0 7%;
+  }
+  .ad-right {
+    float: left;
+  }
 }

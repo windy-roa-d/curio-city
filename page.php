@@ -6,21 +6,6 @@
 *****************************************/
 ?>
 <?php get_header(); ?>
-<style type="text/css">
-    /* 2カラム表示を取り消す処理 */
-    #sidebar{
-        display: none;
-    }
-    #main{
-        width: auto;
-        border: none;
-        margin: 0 10%;
-    }
-    .ad-right{
-        float: left;
-    }
-    
-</style>
   <?php /*get_template_part('breadcrumbs-page'); //固定ページパンくずリストは非表示*/?>
   <?php
   if (have_posts()) : // WordPress ループ

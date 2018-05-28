@@ -8,31 +8,6 @@
 ?>
 
 <?php get_header(); ?>
-<style type="text/css">
-/* 記事本文ページのみ、微調整 */
-    .tagcloud ul{
-        margin: 0;
-    }
-    .tagcloud li{
-        font-size: 11px;
-        font-weight: normal;
-    }
-    #information ul{
-        margin: 0;
-        padding: 0;
-    }
-    .frontPage-infodate{
-        margin: 1em 0;
-        line-height: 1.3;
-    }
-    .frontPage-infodate span{
-        display: block;
-    }
-    #related-entries h2{
-    border-bottom: 2px #ccc solid;
-    padding-bottom: 10px;
-    }
-</style> 
   <?php //パンくずリスト上ウイジェット 非表示処理
   /* if ( is_single() && is_active_sidebar( 'widget-over-breadcrumbs' ) ): ?>
     <?php dynamic_sidebar( 'widget-over-breadcrumbs' ); ?>

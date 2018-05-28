@@ -13,10 +13,8 @@ Simplicity子テーマのCSSです。
 
 */
 /*
-■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■
-サイト共通の全体設定
-■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■
-/***************************************
+■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■サイト共通の全体設定
+■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■/***************************************
 ヘッダータイトル部分
 ***************************************/
 #header #h-top {
@@ -49,27 +47,21 @@ Simplicity子テーマのCSSです。
 ul.snsp li.twitter-page a span {
   background-color: #55ACEE !important;
 }
-
 ul.snsp li.facebook-page a span {
   background-color: #3C5A99 !important;
 }
-
 ul.snsp li.google-plus-page a span {
   background-color: #DD4B39 !important;
 }
-
 ul.snsp li.feedly-page a span {
   background-color: #87BD33 !important;
 }
-
 ul.snsp li.instagram-page a span {
   background-color: #3f729b !important;
 }
-
 ul.snsp li.rss-page a span {
   background-color: #FE9900 !important;
 }
-
 ul.snsp li a span:hover {
   opacity: 0.7 !important;
 }
@@ -304,15 +296,28 @@ hr {
   text-decoration: none;
 }
 
+.frontPage-info ul {
+  margin: 0;
+  padding: 0;
+}
+
+.frontPage-infodate {
+  margin: 0.6em 0;
+  list-style: none;
+}
+.frontPage-infodate a {
+  color: #000;
+  font-weight: bold;
+  text-decoration: none;
+}
+
 .visible-phone {
   display: none;
 }
 
 /*
-■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■
-TOPページ（フロントページ）の表示設定
-■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■
-/***************************************
+■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■TOPページ（フロントページ）の表示設定
+■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■/***************************************
 共通設定
 ***************************************/
 #frontPage-wrap h2 {
@@ -533,19 +538,6 @@ TOPページotherエリア
 #frontPage-others .tagcloud a:before {
   content: "#";
 }
-#frontPage-others .frontPage-info ul {
-  margin: 0;
-  padding: 0;
-}
-#frontPage-others .frontPage-infodate {
-  margin: 0.6em 0;
-  list-style: none;
-}
-#frontPage-others .frontPage-infodate a {
-  color: #000;
-  font-weight: bold;
-  text-decoration: none;
-}
 
 /***************************************
 TOPページレスポンシブ表示設定
@@ -682,111 +674,106 @@ TOPページレスポンシブ表示設定
   }
 }
 /*
-■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■
-記事本文ページ＆固定ページの表示設定
-■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■
-/***************************************
-記事本文の表示設定
+■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■記事本文ページ＆固定ページの表示設定
+■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■/***************************************
+共通設定
 ***************************************/
-.article header {
+.single .entry-content,
+.page .entry-content {
+  margin-bottom: 20px;
+}
+.single .wp-caption,
+.page .wp-caption {
+  padding: 0;
+  border-radius: 0;
+}
+.single .wp-caption-text,
+.single .gallery-caption,
+.page .wp-caption-text,
+.page .gallery-caption {
+  font-size: 80%;
+  margin: 0.5em 1em;
+}
+.single div.timeline-Header,
+.page div.timeline-Header {
+  display: none;
+}
+.single footer .footer-post-meta .post-author,
+.page footer .footer-post-meta .post-author {
+  display: none;
+}
+
+/***************************************
+記事ページのみ、記事本文の表示設定
+***************************************/
+.single .article header {
   background: #eee;
   padding: 15px 15px 20px;
   border-radius: 10px;
 }
-.article header h1 {
+.single .article header h1 {
   margin: 0;
 }
-
-.categoryArea {
-  margin-bottom: 10px;
-}
-.categoryArea a {
+.single .categoryArea a {
   display: inline-block;
   margin-right: 2px;
+  margin-bottom: 10px;
 }
-
-.postDateArea {
+.single .postDateArea {
   display: inline-block;
 }
-
-.post-meta {
+.single .postDateArea span {
+  display: inline-block;
+}
+.single .post-meta {
   text-align: left;
   padding-bottom: 0;
   margin-bottom: 15px;
   background-color: inherit;
 }
-
-/* 投稿および更新日の調整 */
-.post-meta .fa {
-  /* 既存アイコン非表示 */
+.single .post-meta .fa {
   display: none;
 }
-
-.post-meta .post-date,
-.post-meta .post-update {
+.single .post-meta .post-date, .single .post-meta .post-update {
   font-weight: bold;
 }
-
-.post-meta .post-date .entry-date::before {
+.single .post-meta .post-date .entry-date::before {
   content: "公開：";
 }
-
-.post-meta .post-update .entry-date::before {
+.single .post-meta .post-update .entry-date::before {
   content: "最終更新：";
 }
-
-/* 余白調整 */
-.entry-content {
-  margin-bottom: 20px;
-}
-
-/***************************************
-サイドバー表示設定
-***************************************/
-#sidebar {
+.single #sidebar {
   float: left;
 }
-#sidebar h3 {
+.single #sidebar h3 {
   margin-top: 0;
   padding-bottom: 5px;
   border-bottom: 2px solid #000;
 }
-#sidebar h3 a {
+.single #sidebar h3 a {
   color: #000000;
   text-decoration: none;
 }
-#sidebar .widget_popular_ranking {
+.single #sidebar .widget_popular_ranking {
   visibility: hidden;
   height: 0px;
   overflow: hidden;
   margin-bottom: 0;
 }
-#sidebar .widget_popular_ranking h3 {
+.single #sidebar .widget_popular_ranking h3 {
   display: none;
 }
-
-.widget_new_entries ul li img,
-.widget_new_popular ul li img,
-.widget_popular_ranking ul li img {
-  width: 60px;
-  height: 60px;
-  border-radius: 10px;
-}
-
-#old_entries #searchform {
-  margin-top: 0;
-}
-
-#sideTabArea {
+.single #sidebar #sideTabArea {
   margin-bottom: 45px;
 }
-#sideTabArea .sideTabList {
+.single #sidebar #sideTabArea .sideTabList {
   display: flex;
   border-top: 1px solid #000000;
   border-left: 1px solid #000000;
   border-bottom: 2px solid #000000;
 }
-#sideTabArea .sideTabList .tabItem {
+.single #sidebar #sideTabArea .sideTabList .tabItem {
   flex: 1;
   font-size: 20px;
   padding: 5px 0;
@@ -797,73 +784,94 @@ TOPページレスポンシブ表示設定
   cursor: pointer;
   border-right: 1px solid #000000;
 }
-#sideTabArea .tabContent {
+.single #sidebar #sideTabArea .tabContent {
   display: none;
   margin: 16px 0;
 }
-#sideTabArea .tabContent ul {
+.single #sidebar #sideTabArea .tabContent ul {
   margin: 0;
   padding-left: 0;
 }
-#sideTabArea .tabContent .tagcloud {
+.single #sidebar #sideTabArea .tabContent .tagcloud {
   padding-top: 5px;
 }
-#sideTabArea .tabContent .widget_popular_ranking {
+.single #sidebar #sideTabArea .tabContent .widget_popular_ranking {
   visibility: visible;
   height: auto;
 }
-#sideTabArea .tabContent .default {
+.single #sidebar #sideTabArea .tabContent .default {
   min-height: 268px;
 }
-#sideTabArea input[name="tabItem"] {
+.single #sidebar #sideTabArea input[name="tabItem"] {
   display: none;
 }
-#sideTabArea #chapter1:checked ~ #chapter1_content,
-#sideTabArea #chapter2:checked ~ #chapter2_content,
-#sideTabArea #chapter3:checked ~ #chapter3_content {
+.single #sidebar #sideTabArea #chapter1:checked ~ #chapter1_content,
+.single #sidebar #sideTabArea #chapter2:checked ~ #chapter2_content,
+.single #sidebar #sideTabArea #chapter3:checked ~ #chapter3_content {
   display: block;
 }
-#sideTabArea #chapter1:checked ~ .sideTabList .chapter1,
-#sideTabArea #chapter2:checked ~ .sideTabList .chapter2,
-#sideTabArea #chapter3:checked ~ .sideTabList .chapter3 {
+.single #sidebar #sideTabArea #chapter1:checked ~ .sideTabList .chapter1,
+.single #sidebar #sideTabArea #chapter2:checked ~ .sideTabList .chapter2,
+.single #sidebar #sideTabArea #chapter3:checked ~ .sideTabList .chapter3 {
   background: #eeeeee;
 }
-
-/***************************************
-タグクラウド部分
-***************************************/
-.tagcloud .tagcloud-heading {
+.single #sidebar .widget_new_entries ul li img,
+.single #sidebar .widget_new_popular ul li img,
+.single #sidebar .widget_popular_ranking ul li img {
+  width: 60px;
+  height: 60px;
+  border-radius: 10px;
+}
+.single #sidebar #old_entries #searchform {
+  margin-top: 0;
+}
+.single #sidebar .tagcloud .tagcloud-heading {
   text-align: left;
   margin: 0;
 }
-
-.tagcloud hr {
+.single #sidebar .tagcloud ul {
+  margin: 0;
+}
+.single #sidebar .tagcloud ul li {
+  font-size: 11px;
+  font-weight: normal;
+}
+.single #sidebar .tagcloud hr {
   color: #ccc;
   border: 1px solid #ccc;
   margin-bottom: 14px;
 }
-
-/************************************
-画像キャプションの表示設定
-************************************/
-.wp-caption {
+.single #sidebar #information .frontPage-infodate {
+  margin: 1em 0;
+  line-height: 1.3;
+}
+.single #sidebar #information .frontPage-infodate span {
+  display: block;
+}
+.single #sidebar #information ul {
+  margin: 0;
   padding: 0;
-  border-radius: 0;
 }
 
-.wp-caption-text,
-.gallery-caption {
-  font-size: 80%;
-  margin: 0.5em 1em;
+/***************************************
+固定ページのみ表示設定
+***************************************/
+.page .post-meta {
+  text-align: left;
+  background-color: #fff;
+  padding-bottom: 5px;
+  border-bottom: 1px solid #000;
 }
-
-div.timeline-Header {
+.page #sidebar {
   display: none;
 }
-
-/************************************
-フッター箇所の一部非表示設定
-************************************/
-footer .footer-post-meta .post-author {
-  display: none;
+.page #main {
+  width: auto;
+  height: auto;
+  float: none;
+  border: none;
+  margin: 0 7%;
+}
+.page .ad-right {
+  float: left;
 }
