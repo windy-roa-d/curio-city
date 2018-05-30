@@ -19,13 +19,9 @@
 /////////////////////////////////
 (function($){
   $(document).ready(function() {
-    $('#gnav-menu-toggle').click(function(){
-      var header_menu = $('#navi ul');
-      if (header_menu.css('display') == 'none') {
-        header_menu.slideDown();
-      } else{
-        header_menu.slideUp();
-      }
+    $('#gnav-menu').click(function(){
+      var header_menu = $('#container > nav');
+      $(header_menu).toggleClass('show');
     });
   });
 })(jQuery);

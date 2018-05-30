@@ -19,9 +19,7 @@ if ( is_navi_visible() &&
   } ?>
   
 <div id="gnav-menu">
-  <a id="<?php echo $button_id; ?>" href="<?php echo $href_val; ?>">
-    <span class="menuTxt">MENU</span>
-    <span class="fa <?php echo get_menu_button_icon_font(); //Font Awesomeアイコンフォントの取得 ?> fa-2x"></span>
-  </a>
+  <span class="menuTxt">MENU</span>
+  <span class="fa <?php echo get_menu_button_icon_font(); //Font Awesomeアイコンフォントの取得 ?> fa-2x"></span>
 </div>
 <?php endif; ?>
