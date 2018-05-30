@@ -2,7 +2,7 @@
 /*!
 Theme Name: Simplicity2 child
 Template:   simplicity2
-Version:    20180512
+Version:    20180529
 */
 /*
 
@@ -177,6 +177,100 @@ hr {
   margin: 0 0;
   color: #000;
   border: 1px solid #000;
+}
+
+#sidebar {
+  float: left;
+}
+#sidebar h3 {
+  margin-top: 0;
+  padding-bottom: 5px;
+  border-bottom: 2px solid #000;
+}
+#sidebar h3 a {
+  color: #000000;
+  text-decoration: none;
+}
+#sidebar .widget_popular_ranking {
+  visibility: hidden;
+  height: 0px;
+  overflow: hidden;
+  margin-bottom: 0;
+}
+#sidebar .widget_popular_ranking h3 {
+  display: none;
+}
+#sidebar #sideTabArea {
+  margin-bottom: 45px;
+}
+#sidebar #sideTabArea .sideTabList {
+  display: flex;
+  border-top: 1px solid #000000;
+  border-left: 1px solid #000000;
+  border-bottom: 2px solid #000000;
+}
+#sidebar #sideTabArea .sideTabList .tabItem {
+  flex: 1;
+  font-size: 20px;
+  padding: 5px 0;
+  line-height: 130%;
+  text-align: center;
+  font-weight: bold;
+  position: relative;
+  cursor: pointer;
+  border-right: 1px solid #000000;
+}
+#sidebar #sideTabArea .tabContent {
+  display: none;
+  margin: 16px 0;
+}
+#sidebar #sideTabArea .tabContent ul {
+  margin: 0;
+  padding-left: 0;
+}
+#sidebar #sideTabArea .tabContent .tagcloud {
+  padding-top: 5px;
+}
+#sidebar #sideTabArea .tabContent .widget_popular_ranking {
+  visibility: visible;
+  height: auto;
+}
+#sidebar #sideTabArea .tabContent .default {
+  min-height: 268px;
+}
+#sidebar #sideTabArea input[name="tabItem"] {
+  display: none;
+}
+#sidebar #sideTabArea #chapter1:checked ~ #chapter1_content,
+#sidebar #sideTabArea #chapter2:checked ~ #chapter2_content,
+#sidebar #sideTabArea #chapter3:checked ~ #chapter3_content {
+  display: block;
+}
+#sidebar #sideTabArea #chapter1:checked ~ .sideTabList .chapter1,
+#sidebar #sideTabArea #chapter2:checked ~ .sideTabList .chapter2,
+#sidebar #sideTabArea #chapter3:checked ~ .sideTabList .chapter3 {
+  background: #eeeeee;
+}
+#sidebar .widget_new_entries ul li img,
+#sidebar .widget_new_popular ul li img,
+#sidebar .widget_popular_ranking ul li img {
+  width: 60px;
+  height: 60px;
+  border-radius: 10px;
+}
+#sidebar #old_entries #searchform {
+  margin-top: 0;
+}
+#sidebar #information .frontPage-infodate {
+  margin: 1em 0;
+  line-height: 1.3;
+}
+#sidebar #information .frontPage-infodate span {
+  display: block;
+}
+#sidebar #information ul {
+  margin: 0;
+  padding: 0;
 }
 
 #gsc {
@@ -355,7 +449,7 @@ TOPページ記事エリアの表示指定
 #frontPage-topics .articleBlock:last-child {
   margin-bottom: 25px;
 }
-#frontPage-topics .articleBlock:first-child .articleInfo::after {
+body:not(.paged) #frontPage-topics .articleBlock:first-child .articleInfo::after {
   position: absolute;
   display: block;
   content: "NEW！";
@@ -743,114 +837,21 @@ TOPページレスポンシブ表示設定
 .single .post-meta .post-update .entry-date::before {
   content: "最終更新：";
 }
-.single #sidebar {
-  float: left;
-}
-.single #sidebar h3 {
-  margin-top: 0;
-  padding-bottom: 5px;
-  border-bottom: 2px solid #000;
-}
-.single #sidebar h3 a {
-  color: #000000;
-  text-decoration: none;
-}
-.single #sidebar .widget_popular_ranking {
-  visibility: hidden;
-  height: 0px;
-  overflow: hidden;
-  margin-bottom: 0;
-}
-.single #sidebar .widget_popular_ranking h3 {
-  display: none;
-}
-.single #sidebar #sideTabArea {
-  margin-bottom: 45px;
-}
-.single #sidebar #sideTabArea .sideTabList {
-  display: flex;
-  border-top: 1px solid #000000;
-  border-left: 1px solid #000000;
-  border-bottom: 2px solid #000000;
-}
-.single #sidebar #sideTabArea .sideTabList .tabItem {
-  flex: 1;
-  font-size: 20px;
-  padding: 5px 0;
-  line-height: 130%;
-  text-align: center;
-  font-weight: bold;
-  position: relative;
-  cursor: pointer;
-  border-right: 1px solid #000000;
-}
-.single #sidebar #sideTabArea .tabContent {
-  display: none;
-  margin: 16px 0;
-}
-.single #sidebar #sideTabArea .tabContent ul {
-  margin: 0;
-  padding-left: 0;
-}
-.single #sidebar #sideTabArea .tabContent .tagcloud {
-  padding-top: 5px;
-}
-.single #sidebar #sideTabArea .tabContent .widget_popular_ranking {
-  visibility: visible;
-  height: auto;
-}
-.single #sidebar #sideTabArea .tabContent .default {
-  min-height: 268px;
-}
-.single #sidebar #sideTabArea input[name="tabItem"] {
-  display: none;
-}
-.single #sidebar #sideTabArea #chapter1:checked ~ #chapter1_content,
-.single #sidebar #sideTabArea #chapter2:checked ~ #chapter2_content,
-.single #sidebar #sideTabArea #chapter3:checked ~ #chapter3_content {
-  display: block;
-}
-.single #sidebar #sideTabArea #chapter1:checked ~ .sideTabList .chapter1,
-.single #sidebar #sideTabArea #chapter2:checked ~ .sideTabList .chapter2,
-.single #sidebar #sideTabArea #chapter3:checked ~ .sideTabList .chapter3 {
-  background: #eeeeee;
-}
-.single #sidebar .widget_new_entries ul li img,
-.single #sidebar .widget_new_popular ul li img,
-.single #sidebar .widget_popular_ranking ul li img {
-  width: 60px;
-  height: 60px;
-  border-radius: 10px;
-}
-.single #sidebar #old_entries #searchform {
-  margin-top: 0;
-}
-.single #sidebar .tagcloud .tagcloud-heading {
+.single .tagcloud .tagcloud-heading {
   text-align: left;
   margin: 0;
 }
-.single #sidebar .tagcloud ul {
+.single .tagcloud ul {
   margin: 0;
 }
-.single #sidebar .tagcloud ul li {
+.single .tagcloud ul li {
   font-size: 11px;
   font-weight: normal;
 }
-.single #sidebar .tagcloud hr {
+.single .tagcloud hr {
   color: #ccc;
   border: 1px solid #ccc;
   margin-bottom: 14px;
-}
-.single #sidebar #information .frontPage-infodate {
-  margin: 1em 0;
-  line-height: 1.3;
-}
-.single #sidebar #information .frontPage-infodate span {
-  display: block;
-}
-.single #sidebar #information ul {
-  margin: 0;
-  padding: 0;
 }
 
 /***************************************

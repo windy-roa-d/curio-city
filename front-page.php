@@ -41,7 +41,7 @@ Template Name: Top
             <!-- 記事情報 -->
             <div class="articleInfo">
               <h2 class="articleTitle">
-                <?php the_title(); ?>
+                <a href="<?php the_permalink() ?>"><?php the_title(); ?></a>
               </h2>
               
               <div class="articleThumb">
@@ -85,7 +85,11 @@ Template Name: Top
               <!-- 執筆者 -->
               <dl class="articleAuthor">
                 <dt class="articleAuthorName"><a href="<?php echo get_author_posts_url( get_the_author_meta( 'ID' ) ); ?>"><?php the_author_meta( 'display_name' ); ?></a></dt>
-                <dd class="articleAuthorDesc"><a href="<?php echo get_author_posts_url( get_the_author_meta( 'ID' ) ); ?>"><?php the_author_meta( 'user_description' ); ?></a></dd>
+                <dd class="articleAuthorDesc">
+                  <a href="<?php echo get_author_posts_url( get_the_author_meta( 'ID' ) ); ?>">
+                    <?php if(get_the_author_meta('user_title') != ""): ?><?php the_author_meta('user_title'); ?><?php endif; ?>
+                  </a>
+                </dd>
                 <dd class="articleAuthorImg"><a href="<?php echo get_author_posts_url( get_the_author_meta( 'ID' ) ); ?>"><?php echo get_avatar( get_the_author_meta( 'ID' ) ,100 ); ?></a></dd>
               </dl>
               
