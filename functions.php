@@ -10,6 +10,15 @@ add_editor_style();
 
 //以下にSimplicity子テーマ用の関数を書く
 
+// ★☆★　ユーザープロフィールの項目のカスタマイズ　★☆★
+function my_user_meta($wb)
+{
+  //項目の追加
+  $wb['user_title'] = '肩書き';
+  return $wb;
+}
+  add_filter('user_contactmethods', 'my_user_meta', 10, 1);
+
 //★☆★　キャプション指定の設定　★☆★
 //Wordpressのデフォルトで横幅が+10pxされてしまうため関数で上書きする
 add_shortcode('caption', 'my_img_caption_shortcode');
