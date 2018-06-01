@@ -12,7 +12,7 @@
   <div id="sidebar-widget">
     <!-- 過去記事一覧へ -->
     <aside id="old_entries" class="widget">
-      <h3 class="widget_title sidebar_widget_title"><a href="/list/" target="_blank">過去の記事一覧</a></h3>
+      <h3 class="widget_title sidebar_widget_title"><a href="/" target="_blank">過去の記事はコチラへ</a></h3>
       <p>記事検索はコチラ↓</p>
       <script>
         (function() {

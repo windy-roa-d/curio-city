@@ -2,7 +2,7 @@
 /*!
 Theme Name: Simplicity2 child
 Template:   simplicity2
-Version:    20180529
+Version:    20180601
 */
 /*
 
@@ -720,6 +720,10 @@ TOPページレスポンシブ表示設定
   #header #gnav-menu {
     top: 15px;
     right: 15px;
+    width: auto;
+  }
+  #header #gnav-menu .menuTxt {
+    display: none;
   }
   #header #h-top #site-description {
     font-size: 14px;
@@ -906,4 +910,7 @@ TOPページレスポンシブ表示設定
 }
 .page .ad-right {
   float: left;
+}
+.page footer #sns-group {
+  display: none;
 }
