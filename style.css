@@ -171,6 +171,12 @@ body {
   display: none;
 }
 
+#body-in::after {
+  content: "";
+  display: block;
+  clear: both;
+}
+
 #main {
   width: 600px;
   margin: 0 60px;
@@ -421,6 +427,10 @@ hr {
 ■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■/***************************************
 共通設定
 ***************************************/
+.home #main {
+  float: none;
+}
+
 #frontPage-wrap h2 {
   font-size: 21px;
   letter-spacing: 0.05em;
